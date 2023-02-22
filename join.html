@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-latest.min.js"></script>
     <title>join</title>
     <style>
         *{
@@ -39,15 +40,26 @@
             border: 0.8px solid #C0C0C0;
             border-radius: 10px;
             margin-bottom: 19px;
-            padding: 18px;
+            padding: 18px 0 18px 18px;
         }
-        /* 오류시 적용될 css */
-        /* input#joinId{
-            border: 0.8px solid #C74E4E;
+
+        /* 아이디 중복 오류시 적용될 css */
+        .joinIdError{
+            border: 1.5px solid #C74E4E
         }
-        input#joinId::placeholder{
+        .joinIdError::placeholder{
             color: #C74E4E;
-        } */
+        } 
+
+        /* 비밀번호 확인 일치 오류시 적용될 css */
+        .joinPasswordCheckError{
+            border: 1.5px solid #C74E4E;
+        }
+        .joinPasswordCheckError::placeholder{
+            color: #C74E4E;
+            font-size: 19px;
+        } 
+
         input::placeholder{
             color: #A7A7A7;
         }
@@ -72,12 +84,33 @@
     <h1>회원가입</h1>
     <p id="info">정보를 입력하세요.</p>
     <input type="text" name="joinNick" placeholder="닉네임" size="35"/><br/>
-    <input type="text" name="joinId" placeholder="아이디" size="35" id="joinId"/><br/>
+    <input type="text" name="joinId" placeholder="아이디" size="35" /><br/>
     <input type="password" name="joinPassword" placeholder="비밀번호" size="35"/><br/>
     <input type="password" name="joinPasswordCheck" placeholder="비밀번호 확인" size="35"/><br/>
     <p id="wel">회원가입을 환영합니다!</p>
-    <input type="submit" name="join" value="회원가입"/>
+    <input type="submit" name="join" value="회원가입" />
     </form>
+
+    <script>
+        let bool = true;
+        if(bool){
+            $('input[name=joinId]').attr('placeholder','중복된 아이디입니다.');
+            $('input[name=joinId]').addClass('joinIdError');
+        }
+        $('input[name=joinId]').click(()=>{
+            $('input[name=joinId]').attr('placeholder','아이디');
+            $('input[name=joinId]').removeClass('joinIdError'); 
+        });
+
+        if(bool){
+            $('input[name=joinPasswordCheck]').attr('placeholder','비밀번호가 일치하지 않습니다.');
+            $('input[name=joinPasswordCheck]').addClass('joinPasswordCheckError');
+        }
+        $('input[name=joinPasswordCheck]').click(()=>{
+            $('input[name=joinPasswordCheck]').attr('placeholder','비밀번호 확인');
+            $('input[name=joinPasswordCheck]').removeClass('joinPasswordCheckError'); 
+        });
+    </script>
 </body>
 
 </html>
