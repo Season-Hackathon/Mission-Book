@@ -58,10 +58,6 @@
         </p>
         <p class="fade_in">그러면, 즐거운 새내기 생활되세요 🙂</p>
     </div>
-    
-    <div>
-
-    </div>
 
     <script>
         // 닉네임 바꾸기 테스트
@@ -71,14 +67,14 @@
         // 시간차 문단 보이기
         const fadeEls = document.querySelectorAll('.fade_in');
         fadeEls.forEach((fadeEl, index)=>{
-            gsap.to(fadeEl, {
+            gsap.to(fadeEl, 2, {
             delay : (index + 1) * .9,
             opacity:1
         })
         });
 
-        // 바디 클릭시 화면 넘어감
-        $('body').click(()=>{ location.replace('setup.html') });
+        // 바디 클릭시 프롤로그 다음 페이지로 넘어감
+        $('body').click(()=>{ location.replace('prolog2.html') });
 
     </script>
 </body>
