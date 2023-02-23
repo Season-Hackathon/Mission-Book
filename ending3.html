@@ -63,6 +63,25 @@
             padding-left: 30px;
             text-align: left;
         }
+        footer{
+            display: flex;
+            justify-content: space-around;
+            margin: 0 52px 52px 52px;
+        }
+        footer input{
+            padding: 12px 34px;
+            margin-left: 30px;
+            background: #FAFAFA;
+            border: 0.8px solid #C0C0C0;
+            border-radius: 5px;
+            font-size: 18px;
+            line-height: 22px;
+            color: #666666;
+
+        }
+        footer img{
+            margin-right: 30px;
+        }
     </style>
 </head>
 <body>
@@ -96,14 +115,20 @@
                 학업 <span id="study_count">40</span>개 <br/>
                 사교 <span id="friend_count">100</span>개 <br/>
                 경험 <span id="expe_count">57</span>개 <br/>
-                레벨 <span id="level_count">300</span>개 <br/>
+                합계 <span id="sum">300</span>개 <br/>
             </p>
         </div>
     </div>
         <hr/>
-    <img src="image/kakao.png" alt="카톡공유" width="40px" height="40px"/>
-    <img src="image/insta.png" alt="인스타공유" width="40px" height="40px"/>
-    <input type="submit" value="확인"/>
+
+    <footer>
+        <img src="image/kakao.png" alt="카톡공유" width="40px" height="40px"/>
+        <img src="image/insta.png" alt="인스타공유" width="40px" height="40px"/>
+
+        <form action="login.html">
+            <input type="submit" value="확인"/>
+        </form>
+    </footer>
 
     <script>
         //스탯, 미션 개수값들 변경
@@ -115,7 +140,7 @@
         $('#study_count').text('20'); //성공한 학업 개수
         $('#friend_count').text('20'); //성공한 사교 개수
         $('#expe_count').text('20'); //성공한 경험 개수
-        $('#level_count').text('20'); //성공한 레벨 개수
+        $('#sum').text('20'); // 합계
     </script>
 </body>
 </html>
