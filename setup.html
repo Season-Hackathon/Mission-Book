@@ -15,12 +15,23 @@
             line-height: 22px;
             color: #7A7A7A;
         }
-        body{
+        main{
             display: flex;
             flex-direction: column;
             align-items: center;
             margin: 0;
         }
+        /* 상단바 css */
+        header{
+            margin-top: 77px;
+            display: flex;
+            justify-content: end;
+            padding-right: 5px;
+        }
+        header img{
+            margin-right: 15px;
+        }
+
         input{
             box-sizing: border-box;
             width: 315px;
@@ -33,7 +44,7 @@
             text-align: left;
         }
         input[name=changeNick]{
-            margin-top: 188px;
+            margin-top: 86px;
         }
         input[name=delectAccount]{
             color: #C74E4E;
@@ -160,10 +171,20 @@
     </style>
 </head>
 <body>
-    <input type="button" name="changeNick" value="이름 변경"/>
-    <input type="button" name="changeImg" value="프로필 이미지 변경"/>
-    <a href="login.html"><input type="button" name="logOut" value="로그아웃"/></a>
-    <input type="button" name="delectAccount" value="회원탈퇴"/>
+    <!-- 상단바 (네비게이션) -->
+    <header>
+        <a href="index.html"><img src="image/misson.png" alt="미션아이콘" width="25px" height="25px"/></a>
+        <a href="mypage.html"><img src="image/info.png" alt="정보아이콘" width="25px" height="25px"/></a>
+        <a href="setup.html"><img src="image/setup_click.png" alt="설정아이콘" width="25px" height="25px"/></a>
+    </header>
+
+    <!-- 설정 버튼들 -->
+    <main>
+        <input type="button" name="changeNick" value="이름 변경"/>
+        <input type="button" name="changeImg" value="프로필 이미지 변경"/>
+        <a href="login.html"><input type="button" name="logOut" value="로그아웃"/></a>
+        <input type="button" name="delectAccount" value="회원탈퇴"/>
+    </main>
 
      <!-- 큰 사이즈 모달창 -->
      <div class="modal hidden">
@@ -221,6 +242,7 @@
         $('input[name=cancel]').click(()=>{
             $('.modal2').addClass('hidden');
         })
+        
         
     </script>
 </body>
