@@ -128,7 +128,7 @@
     <div id="homeLogo"></div>
     <h1>MISSION BOOK</h1>
     <p>새내기를 위한🌱</p>
-    <form>
+    <form action="prolog.html">
     <input type="text" name="id" placeholder="아이디" size="35"/><br/>
     <input type="password" name="password" placeholder="비밀번호" size="35"/><br/>
     <input type="submit" name="login" value="로그인" />
@@ -150,14 +150,21 @@
         // 모달창의 확인 버튼 누를시 모달창 없어짐
         $('input[name=loginErrorModal]').click(()=>{$('.modal').addClass('hidden')});
         // 로그인 입력 오류시 모달창 보임
-        $('input[name=login]').click(()=>{$('.modal').removeClass('hidden')});
+        // $('input[name=login]').click(()=>{$('.modal').removeClass('hidden')});
         
         // 비밀번호 입력 오류시 모달창에 바뀔 텍스트
-        let bool = true;
+        let bool = false;
         if (bool) {
             $('.md_content > h3').text('비밀번호 오류');
             $('.md_content > p').text('비밀번호가 잘못되었습니다.');
         }
+
+        // 맨 처음 로그인한게 아닐시 프롤로그 페이지가 아닌 미션화면으로 넘어감
+        let bool2 = false;
+        if(bool2){
+            $('form').removeAttr('action', 'index.html');
+        }
+
     </script>
 </body>
 </html>
