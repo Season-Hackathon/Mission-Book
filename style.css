@@ -1,14 +1,52 @@
-html{
-    position: relative;
+*{
+    box-sizing: border-box;
+}
+
+body{
+    margin: 0 auto;
+    padding: 0;
     width: 375px;
     height: 812px;
     background: #FFFFFF;
+    /*폰트 적용 여기
+    font-famaily: */
 }
 
-.mission1{
+.container{
+    margin :0 auto;
+}
 
+ /* 상단바 css */
+header{
+    margin-top: 77px;
+    display: flex;
+    justify-content: end;
+    padding-right: 5px;
+}
+
+header img{
+    margin-right: 15px;
+}
+
+.mission-tab {
+    margin-top: 20px;
+    display:flex;
+    justify-content: center;
+}
+
+.mis-btn{
+    padding-right: 70px;
+}
+
+.missions{
+    display: flex;
+    justify-content: center;
+}
+
+
+.mission1{
     position: absolute;
-    width: 160px;
+    width: 160px;   
     height: 165.22px;
     left: 18px;
     top: 283.28px;
@@ -16,6 +54,8 @@ html{
     box-shadow: 2px 4px 4px rgba(0, 0, 0, 0.1);
     border-radius: 10px;
 }
+
+
 
 .mission2{
     position: absolute;
