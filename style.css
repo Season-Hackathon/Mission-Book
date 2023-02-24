@@ -1,5 +1,13 @@
+@font-face{
+font-family : "Apple SD Gothic Neo";
+src:url(./fonts/AppleSDGothicNeoR.woff) format("woff");
+}
+
 *{
     box-sizing: border-box;
+    background: #FFFFFF;
+    font-family: 'Apple SD Gothic Neo';
+    font-style: normal;
 }
 
 body{
@@ -8,12 +16,66 @@ body{
     width: 375px;
     height: 812px;
     background: #FFFFFF;
-    /*폰트 적용 여기
-    font-famaily: */
 }
 
-.container{
+.hd{
     margin :0 auto;
+    position:relative;
+    /* display:flex; */
+}
+
+.hd-container::after{
+    content:" ";
+    display:block;
+    clear:both;
+}
+
+.profileimg{
+    /* position: absolute; */
+    float: left;
+    width: 58px;
+    height: 58px;
+    left: 25px;
+    top: 101px;
+    object-fit:cover;
+    margin-right: 10px;
+    padding-right:10px
+}
+
+.user-info{
+    float:left;
+    margin:10px 40px 0px 0px;
+} 
+
+.level{
+    /* position: absolute; */
+    width: 27px;
+    height: 14px;
+    left: 161px;
+    top: 118px;
+    font-family: 'Apple SD Gothic Neo';
+    font-style: normal;
+    font-weight: 800;
+    font-size: 12px;
+    line-height: 14px;
+
+    color: #666666;
+}
+
+.personal-explanation{
+    /* position: absolute; */
+    width: 67px;
+    height: 18px;
+    left: 99px;
+    top: 137px;
+    font-family: 'Apple SD Gothic Neo';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 15px;
+    line-height: 18px;
+    /* identical to box height */
+    letter-spacing: 0.02em;
+    color: #666666;
 }
 
  /* 상단바 css */
@@ -28,6 +90,21 @@ header img{
     margin-right: 15px;
 }
 
+.name{
+    /* position: absolute; */
+    width: 55px;
+    height: 25px;
+    left: 99px;
+    top: 110px;
+
+    font-family: 'Apple SD Gothic Neo';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 21px;
+    line-height: 25px;
+
+    color: #000000;
+}
 .mission-tab {
     margin-top: 20px;
     display:flex;
@@ -38,11 +115,35 @@ header img{
     padding-right: 70px;
 }
 
-.missions{
-    display: flex;
-    justify-content: center;
+.main-sec{
+    position:relative;
+    width: 375px;
+    height: 579px;
+    left: 0px;
+    top: 235px;
+    background: #F9F9F9;
+    border-top: 0.5px solid #C0C0C0
 }
 
+.msg{
+    position:absolute;
+    width: 198px;
+    height: 17.49px;
+    left: 25px;
+    top: 250px;
+}
+
+h2{
+    background-color: transparent;
+}
+
+.missions{
+    position:center;
+}
+
+.mission-contents{
+    background-color: transparent;
+}
 
 .mission1{
     position: absolute;
@@ -53,8 +154,8 @@ header img{
     background: #F6FAFF;
     box-shadow: 2px 4px 4px rgba(0, 0, 0, 0.1);
     border-radius: 10px;
+    border : none;
 }
-
 
 
 .mission2{
@@ -67,6 +168,7 @@ header img{
     background: #F6FAFF;
     box-shadow: 2px 4px 4px rgba(0, 0, 0, 0.1);
     border-radius: 10px;
+    border: none;
 }
 
 .mission3{

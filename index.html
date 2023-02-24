@@ -5,33 +5,30 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <title>Mission Book</title>
+    <title>studypage</title>
 
 </head>
 <body>
     <!-- 상단바 (네비게이션) -->
+    <div class="hd-container">
         <header>
             <a href="index.html"><img src="image/misson_click.png" alt="미션아이콘" width="25px" height="25px"/></a>
             <a href="mypage.html"><img src="image/info.png" alt="정보아이콘" width="25px" height="25px"/></a>
             <a href="setup.html"><img src="image/setup.png" alt="설정아이콘" width="25px" height="25px"/></a>
-    
         </header>
 
     <!--사용자 정보 -->
     <section class="hd">
-        <div class="container">
-            <div>
-                <a class="name">정혜선</ㅁ>
-                <a class="level">Lv.7</a>
+        <div class="hd-container">
+                <div class="profileimg"><img src="image/profile.png" alt="프로필이미지"></div>
+                <div class="user-info">
+                    <a class="name">정혜선</a>
+                    <a class="level">Lv.7</a> <br>
+                    <a class="personal-explanation">민트초코파 </a>
             </div>
-            <div>
-                <p class="personal explanation">민트초코파 </p>
-            </div>
-    
-            
         </div>
     </section>
-
+</div>
     <!--미션 탭 -->
     <div class="mission-tab">
         <div class="mis-btn"> 
@@ -48,19 +45,45 @@
         
     </div>
 
-    
+    <section class="main-sec">
+        <p class="msg"><span>학업</span>에 관련된 미션을 해결하세요 </p>
+        <div class=missions>
+            <button type="button" class="mission1" onclick="location.href='misson_modal.html'">
+                <img src="image/blue_star.png" alt="별" width="20px" height="20px" class="first"/>
+                <img src="image/blue_star.png" alt="별" width="20px" height="20px" class="second"/>
+                <img src="image/blue_star.png" alt="별" width="20px" height="20px" class="third"/>
+                
+                <h2 class="mission-contents">3과목 A+ 받기</h2></button>
 
-    <div class="missions">
-        <p class="msg"><span style:bold;>학업</span>에 관련된 미션을 해결하세요 </p>
-        <div>
-            <div class="mission1">3과목 A+ 받기</div>
-            <div class="mission2">책 1권 읽고 독후감 쓰기</div>
-            <div class="mission3">책 40권 읽기</div>
-            <div class="mission4">토익 200점 넘기</div>
-            <div class="mission5">과제 끝내기</div>
-            <div class="mission6">조기졸업 하기</div>
+            <button type="button" class="mission1" onclick="location.href='misson_modal.html'">
+                <img src="image/blue_star.png" alt="별" width="20px" height="20px" class="first"/>
+                <img src="image/blue_star.png" alt="별" width="20px" height="20px" class="second"/>
+                <img src="image/blue_star.png" alt="별" width="20px" height="20px" class="third"/>
+                    
+                <h2>3과목 A+ 받기</h2></button>
+
+                    <button type="button" class="mission1" onclick="location.href='misson_modal.html'">
+                        <img src="image/blue_star.png" alt="별" width="20px" height="20px" class="first"/>
+                        <img src="image/blue_star.png" alt="별" width="20px" height="20px" class="second"/>
+                        <img src="image/blue_star.png" alt="별" width="20px" height="20px" class="third"/>
+                        
+                        <h2>3과목 A+ 받기</h2></button>
+                        <button type="button" class="mission1" onclick="location.href='misson_modal.html'">
+                            <img src="image/blue_star.png" alt="별" width="20px" height="20px" class="first"/>
+                            <img src="image/blue_star.png" alt="별" width="20px" height="20px" class="second"/>
+                            <img src="image/blue_star.png" alt="별" width="20px" height="20px" class="third"/>
+                            
+                            <h2>3과목 A+ 받기</h2></button>
+
+
+            <button type="button" class="mission2" onclick="location.href='misson_modal.html'">책 1권 읽고 독후감 쓰기</button>
+            <button type="button" class="mission3" onclick="location.href='misson_modal.html'">책 40권 읽기</button>
+            <button type="button" class="mission4" onclick="location.href='misson_modal.html'">토익 200점 넘기</button>
+            <button type="button" class="mission5" onclick="location.href='misson_modal.html'">과제 끝내기</button>
+            <button type="button" class="mission6" onclick="location.href='misson_modal.html'">조기졸업 하기</button> 
+
         </div>
-    </div>
+    </section>
 
 </body>
 </html>
