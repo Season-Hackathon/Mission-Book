@@ -7,7 +7,7 @@
     <title>guide_modal.html</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
     <style>
-        /* 안내 메세지 모달창 */
+        /* 안내 메세지 모달창 css */
         .modal{
             position: fixed;
             top: 0; left: 0;
@@ -89,11 +89,106 @@
             margin-left: 8px;
         }
 
+        /* 졸업 안내 모달창 css */
+        .modal2{
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+        }
+        .md_overlay2{
+            background: rgba(0, 0, 0, 0.25);
+            width: 100%; height: 100%;
+            position: absolute;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .md_position2{
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .md_content2{
+            width: 300px; height: 280px;
+            position: absolute;
+            z-index: 10;
+            background-color: white;
+            border-radius: 5px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+        .hidden{
+            display: none;
+        }
+        .title_position{
+            display: flex;
+            margin-top: 0;
+            margin-bottom: 14px;
+            padding-top: 40px;
+        }
+        .md_content2>img{
+            display: inline;
+        }
+        .md_content2 h3{
+            color: #666666;
+            font-weight: 800;
+            font-size: 25px;
+            line-height: 30px;
+            margin: 0;
+        }
+        .first_p{
+            font-weight: 700;
+            font-size: 18px;
+            line-height: 22px;
+            color: #7A7A7A;
+            margin: 0;
+        }
+        .second_p{
+            font-weight: 700;
+            font-size: 13px;
+            line-height: 16px;
+            margin: 0;
+            color: #7A7A7A;
+            font-family: 'Apple SD Gothic Neo';
+            font-style: normal;
+        }
+        .second_p span{
+            color: #C74E4E;
+        }
+        .md_content2>input{
+            margin-top: 27px;
+            margin-bottom: 28px;
+            box-sizing: border-box;
+            width: 150px; height: 45px;
+            padding: 10px;
+            background: #FAFAFA;
+            border: 0.8px solid #C0C0C0;
+            border-radius: 5px;
+            font-family: 'Apple SD Gothic Neo';
+            font-style: normal;
+            font-weight: 800;
+            font-size: 18px;
+            line-height: 22px;
+            color: #666666;
+        }
+        .left_icon{
+            margin-right: 8px;
+        }
+        .right_icon{
+            margin-left: 8px;
+        }
+
     </style>
 </head>
 <body>
     <!-- 안내매세지 모달창 -->
-    <div class="md_position">
+    <div class="md_position hidden">
         <div class="modal">
             <div class="md_overlay ">
             </div>
@@ -111,16 +206,37 @@
         </div>  
     </div>
     
+    <!-- 졸업 안내 모달창 -->
+    <div class="md_position2">
+        <div class="modal2">
+            <div class="md_overlay2">
+            </div>
+        </div>
+
+        <div class="md_content2">
+            <div class="title_position">
+                <img src="image/graduation_icon.png" alt="왼쪽아이콘" width="25px" height="25px" class="left_icon"/>
+                <h3>엔딩</h3>
+                <img src="image/graduation_icon.png" alt="오른쪽아이콘" width="25px" height="25px" class="right_icon"/>
+            </div>
+            <p class="first_p">12월 31일이 되었습니다. <br/>
+                지금 바로 엔딩을 확인해보세요!</p> <br/>
+            <p class="second_p"><span>주의사항</span>: 지금부터 미션을 성공해도 <br/>
+                더 이상의 스탯, 레벨 변화는 없습니다.</p>
+            <input type="button" name="loginErrorModal" value="확인"/>
+
+        </div>  
+    </div>
 
     <script>
         // 배경의 까만 부분 누르면 모달창 사라짐 (frame 31 : 엔딩 모달창의 경우만 적용)
-        $('.md_overlay').click(()=>{$('.md_position').addClass('hidden')});
+        $('.md_overlay2').click(()=>{$('.md_position2').addClass('hidden')});
 
         // 모달창 제목의 왼쪽 아이콘 바꾸기 (아이콘 이미지 파일(~_icon) : celebrate / gift / graduation(학사모) / siren(사이렌) / throphy)
-        $('.left_icon').attr('src','image/trophy_icon.png');
+        $('.md_content .left_icon').attr('src','image/trophy_icon.png');
 
         // 모달창 제목의 오른쪽 아이콘 바꾸기
-        $('.right_icon').attr('src','image/trophy_icon.png');
+        $('.md_content .right_icon').attr('src','image/trophy_icon.png');
 
         // 모달창 제목 바꾸기
         $('.md_content h3').text('미션 성공');
@@ -130,8 +246,10 @@
 
         // frame 28처럼 '스탯', '레벨'과 같이 색깔을 진하게 하려면 모달창 내용에 <span>태그로 감싸주고 css 바꾸기
         $('.md_content span').css('color','#666666');
-
-        $('input[name=loginErrorModal]').click(()=>{$('.md_position').addClass('hidden')});
+        
+        // 모달창의 확인 버튼 누르면 모달창 사라짐
+        $('input[name=loginErrorModal]').click(()=>{$('.md_position').addClass('hidden')}); // 안내메세지
+        $('input[name=loginErrorModal]').click(()=>{$('.md_position2').addClass('hidden')}); // 졸업메세지
     </script>
 </body>
 </html>
