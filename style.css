@@ -20,6 +20,7 @@ body{
 
 .hd{
     margin :0 auto;
+    padding-top: 50px;
     position:relative;
     /* display:flex; */
 }
@@ -106,31 +107,47 @@ header img{
     color: #000000;
 }
 .mission-tab {
-    margin-top: 20px;
+    margin-top: 60px;
     display:flex;
     justify-content: center;
 }
 
 .mis-btn{
-    padding-right: 70px;
+    padding-right: 80px;
 }
-
+.mis-btn:last-child{
+    padding-right:0px;
+}
 .main-sec{
     position:relative;
     width: 375px;
-    height: 579px;
+    height: 500px;
     left: 0px;
-    top: 235px;
     background: #F9F9F9;
     border-top: 0.5px solid #C0C0C0
 }
 
 .msg{
-    position:absolute;
-    width: 198px;
+    /* position: absolute; */
+    padding-left: 5%;
+    width: 250px;
     height: 17.49px;
     left: 25px;
     top: 250px;
+    background-color: transparent;
+
+    font-family: 'Apple SD Gothic Neo';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 15px;
+    line-height: 18px;
+
+    color: #8C8C8C;
+}
+
+.msg-stress{
+    color: #666666;
+    background-color: transparent;
 }
 
 h2{
