@@ -30,9 +30,9 @@
         }
         .md_content{
             width: 100%; height: 420px;
-            padding-left: 40px;
+            padding-left: 23px;
             position: fixed;
-            bottom: 0;
+            bottom: 0; left: 0;
             background-color: white;
             border-radius: 5px;
         }
@@ -71,7 +71,6 @@
             font-size: 18px;
             line-height: 22px;
             color: #666666;
-            margin-left: 23px;
         }
         .md_content input[type=button]{
             margin-bottom: 28px;
@@ -86,7 +85,7 @@
             line-height: 22px;
             font-weight: 800;
             color: #C74E4E;
-            margin-right: 23px;
+            margin-right: 46px;
         }
         .md_content input[type=text]{
             box-sizing: border-box;
@@ -105,32 +104,39 @@
             margin-right: 50px;
             margin-bottom: 44px;
         }
+        .minus{
+            margin-right: 25px;
+        }
+        .plus{
+            margin-left: 25px;
+        }
     </style>
 </head>
 <body>
     <!-- 큰 사이즈 모달창 -->
     <div class="modal hidden">
         <div class="md_overlay">
-            <div class="md_content">
-                <img src="image/blue_star.png" alt="별" width="25px" height="25px" class="first"/>
-                <img src="image/blue_star.png" alt="별" width="25px" height="25px" class="second"/>
-                <img src="image/blue_star.png" alt="별" width="25px" height="25px" class="third"/>
-                <h3>3과목 A+ 받기</h3>
-                <p>대학교 과목 중 3개의 과목을 A+ 받습니다. <br/>
-                    그래도 됩니다.</p>
-                <form>
-                    <div class="ongoing">
-                        <img src="image/minus_icon.png" alt="마이너스 버튼" width="40px" height="40px" class="minus"/>
-                        <input type="text" name="misson_check_value" value="0" readonly/> <!-- 백엔드로 넘어갈 미션 중간점검 값 -->
-                        <img src="image/sum_icon.png" alt="플러스 버튼" width="40px" height="40px" class="plus"/><br/>
-                    </div>
-                    <div>
-                        <input type="button" name="give_up" value="포기"/>
-                        <input type="submit" name="changeNickModal" value="적용"/>
-                    </div>
-                </form>
-            </div>
         </div>
+    </div>
+
+    <div class="md_content">
+        <img src="image/blue_star.png" alt="별" width="25px" height="25px" class="first"/>
+        <img src="image/blue_star.png" alt="별" width="25px" height="25px" class="second"/>
+        <img src="image/blue_star.png" alt="별" width="25px" height="25px" class="third"/>
+        <h3>3과목 A+ 받기</h3>
+        <p>대학교 과목 중 3개의 과목을 A+ 받습니다. <br/>
+            그래도 됩니다.</p>
+        <form>
+            <div class="ongoing">
+                <img src="image/minus_icon.png" alt="마이너스 버튼" width="40px" height="40px" class="minus"/>
+                <input type="text" name="misson_check_value" value="0" readonly/> <!-- 백엔드로 넘어갈 미션 중간점검 값 -->
+                <img src="image/sum_icon.png" alt="플러스 버튼" width="40px" height="40px" class="plus"/><br/>
+            </div>
+            <div>
+                <input type="button" name="give_up" value="포기"/>
+                <input type="submit" name="changeNickModal" value="적용"/>
+            </div>
+        </form>
     </div>
     <script>
         //모달창 열고 닫기 테스트 (bool이 true면 열고 false면 닫음)
@@ -167,7 +173,7 @@
         });
 
         //학업미션일때 별 색깔 & 개수
-        // $('.md_content > img').attr('src','image/blue_star.png'); //파란색 별로 바꾸기
+        $('.md_content > img').attr('src','image/blue_star.png'); //파란색 별로 바꾸기
 
         //사교미션일때 별 색깔 & 개수
         $('.md_content > img').attr('src','image/yellow_star.png'); // 노란색 별로 바꾸기
@@ -185,12 +191,15 @@
         $('.md_content > p').html('아무 책이나 1권을 읽고 독후감을 씁니다. <br/> 그래도 됩니다.'); //해당 미션 내용
 
         //A+ 3과목 받기와 같이 진행중 상황 체크 안해도 되는 미션일때 마이너스,플러스 없애기
-        $('div.ongoing > img').remove();
-        $('div.ongoing > input').remove();
+        // $('div.ongoing > img').remove();
+        // $('div.ongoing > input').remove();
 
         //진행 전 미션일때 -> 추가하기 버튼으로 변경
         $('input[name=give_up]').remove();
         $('input[name=changeNickModal]').attr('value','추가하기');
+
+        //배경의 까만부분 누르면 모달창 사라짐
+        $('.md_overlay').click(()=>{$('.modal').addClass('hidden'); $('.md_content').addClass('hidden')});
     </script>
 </body>
 </html>
