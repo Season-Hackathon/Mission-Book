@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="{% static 'style.css' %}" />
+
+    <title>📚MissionBook - MyPage</title>
+  </head>
+
+  <body>
+    <header>
+      <a href="{% url 'index_null' %}"><img src="{% static 'misson.png' %}" alt="미션아이콘" width="25px" height="25px"/></a>
+      <a href="{% url 'mypage' %}"><img src="{% static 'info_click.png' %}" alt="정보아이콘" width="25px" height="25px"/></a>
+      <a href="{% url 'setup' %}"><img src="{% static 'setup.png' %}" alt="설정아이콘" width="25px" height="25px"/></a>
+  </header>
+    <!-- 사용자 정보 -->
+    <div id="userTab">
+      <img id="userImg" src="/media/{{ user.profile_image }}" alt="사용자 이미지" />
+      <p>
+        <span id="username">{{user.name}}</span>&nbsp;<span id="level">LV.{{ user.total_exp|add:0 }}</span
+        ><br /><span id="title">{% if user.title %}{{user.title}}{% else %} 칭호없음 {% endif %}</span>
+      </p>
+    </div>
+    <hr />
+    <!-- 메뉴 -->
+    <div class="tab_menu">
+      <ul class="list">
+        <!-- 스탯 -->
+        <li class="is_on">
+          <a href="#stats" class="btn">스탯</a>
+          <div id="stats" class="cont">
+            <p class="menu-title">🚩 현재 레벨</p>
+            <div class="menu-detail">
+              <p>LV. {{ user.total_exp|add:0 }}</p>
+              <p class="per">
+                <!-- max 100%, value 값에 따라 설정 -->
+                <progress id="progress" value="{{exp_per}}" max="100"></progress>
+              <p id="per_value"> {{exp_per}}% </p>
+              </p>
+            </div>
+            <br />
+    
+            <p class="menu-title">💪🏻 현재 스탯</p>
+            <div class="menu-detail">
+              <p>학업&nbsp;&nbsp;<span id="study">{{user.int_stat|add:0}}</span></p>
+              <p>사교&nbsp;&nbsp;<span id="social">{{user.social_stat|add:0}}</span></p>
+              <p>경험&nbsp;&nbsp;<span id="exp">{{user.exp_stat|add:0}}</span></p>
+            </div>
+            <br />
+    
+            <p class="menu-title">📜 지금까지 완료한 미션</p>
+            <div class="menu-detail">
+              <p>학업&nbsp;&nbsp;<span id="study-complete">{{int_num}}</span>개</p>
+              <p>사교&nbsp;&nbsp;<span id="social-complete">{{social_num}}</span>개</p>
+              <p>경험&nbsp;&nbsp;<span id="exp-complete">{{exp_num}}</span>개</p>
+              <p>총&nbsp;&nbsp;<span id="total">{{total_num}}</span>개</p>
+          </div>
+        </li>
+        <!-- 칭호 -->
+        <li>
+          <a href="#title" class="btn">칭호</a>
+          <div id="title" class="cont">
+            <div id="box" class="box">
+              <div id="palletBox" class="pallet">
+              </div>
+              <button id="apply" type="button">적용</button>
+          </div>
+          <br/>
+          <div class="title-wrap">
+            {% for title in selectable_titles %}
+            <p class="title-text"><a href="{% url 'change_title' title.id %}?title_id={{ title.id }}">{{ title }}</a></p>
+            {% endfor %}
+        </div>
+          </div>
+        </li>
+        <!-- 완료 -->
+        <li>
+          <a href="#complete" class="btn">완료</a>
+          <div id="complete" class="cont">
+            <ul>
+              <li class="is_sub">
+                <a href="#sub-complete-study" class="sub-btn">📖</a>
+                <div id="sub-complete-study" class="sub-cont">
+                  <div class="sub-wrap-study">
+                    <span id="star-study">★</span>
+                    <p id="text-study">토익 200점 넘기</p>
+                  </div>
+                  <div class="sub-wrap-study">
+                    <span id="star-study">★</span>
+                    <p id="text-study">토익 200점 넘기</p>
+                  </div>
+                  <div class="sub-wrap-study">
+                    <span id="star-study">★</span>
+                    <p id="text-study">토익 200점 넘기</p>
+                  </div>
+                  <div class="sub-wrap-study">
+                    <span id="star-study">★</span>
+                    <p id="text-study">토익 200점 넘기</p>
+                  </div>
+                  <div class="sub-wrap-study">
+                    <span id="star-study">★</span>
+                    <p id="text-study">토익 200점 넘기</p>
+                  </div>
+              </div>
+            </li>
+            <li>
+              <a href="#sub-complete-social" class="sub-btn">🌼</a>
+              <div id="sub-complete-social" class="sub-cont">
+                <div class="sub-wrap-social">
+                  <p id="star-social">★</p>
+                  <p id="text-social">토익 200점 넘기</p>
+                </div>
+                <div class="sub-wrap-social">
+                  <p id="star-social">★</p>
+                  <p id="text-social">토익 200점 넘기</p>
+                </div>
+                <div class="sub-wrap-social">
+                  <p id="star-social">★</p>
+                  <p id="text-social">토익 200점 넘기</p>
+                </div>
+                <div class="sub-wrap-social">
+                  <p id="star-social">★</p>
+                  <p id="text-social">토익 200점 넘기</p>
+                </div>
+                <div class="sub-wrap-social">
+                  <p id="star-social">★</p>
+                  <p id="text-social">토익 200점 넘기</p>
+                  <div class="sub-wrap-social">
+                    <p id="star-social">★</p>
+                    <p id="text-social">토익 200점 넘기</p>
+                  </div>
+                </div>
+            </div>
+          </li>
+          <li >
+            <a href="#sub-complete-exp" class="sub-btn">🧭</a>
+            <div id="sub-complete-exp" class="sub-cont">
+              <div class="sub-wrap-exp">
+                <p id="star-exp">★</p>
+                <p id="text-exp">토익 200점 넘기</p>
+              </div>
+              <div class="sub-wrap-exp">
+                <p id="star-exp">★</p>
+                <p id="text-exp">토익 200점 넘기</p>
+              </div>
+              <div class="sub-wrap-exp">
+                <p id="star-exp">★</p>
+                <p id="text-exp">토익 200점 넘기</p>
+              </div>
+              <div class="sub-wrap-exp">
+                <p id="star-exp">★</p>
+                <p id="text-exp">토익 200점 넘기</p>
+              </div>
+              <div class="sub-wrap-exp">
+                <p id="star-exp">★</p>
+                <p id="text-exp">토익 200점 넘기</p>
+              </div>
+              <div class="sub-wrap-exp">
+                <p id="star-exp">★</p>
+                <p id="text-exp">토익 200점 넘기</p>
+              </div>
+          </div>
+        </li>
+          </ul>
+        </div>
+        </li>
+      </ul>
+    </div>
+    <script src="{% static 'mypage.js' %}"></script>
+  </body>
+</html>
