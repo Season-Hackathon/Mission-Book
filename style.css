@@ -194,17 +194,17 @@ color: #666666;
     border-radius: 10px;
 }
 
+
 .mission2{
     display: inline-block;
     width: 160px;
     height: 165.22px;
-    margin-right: 15px;
+    /* margin-right: 15px; */
     left: 18px;
     background: #F6FAFF;
     box-shadow: 2px 4px 4px rgba(0, 0, 0, 0.1);
     border-radius: 10px;
 }
-
 .mission3{
     display:inline-block;
     width: 160px;
@@ -277,18 +277,7 @@ color: #666666;
     font-weight: 800;
     font-size: 18px;
     line-height: 22px;
-color: #666666;
-}
-
-.mission2{
-
-    display:inline-block;
-    width: 160px;
-    height: 165.22px;
-    left: 18px;
-    background: #F6FAFF;
-    box-shadow: 2px 4px 4px rgba(0, 0, 0, 0.1);
-    border-radius: 10px;
+    color: #666666;
 }
 
 .missions{
@@ -411,6 +400,7 @@ form div{
 .plus{
     margin-left: 25px;
 }
+
 @keyframes slidein{
     from{
         height: 0px;
