@@ -1,199 +1,187 @@
 <!DOCTYPE html>
 <html lang="ko">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="../styles/style.css" />
-    <title>📚MissionBook - MyPage</title>
-  </head>
 
-  <body>
-    <header>
-      <a href="index.html"
-        ><img
-          src="../image/misson.png"
-          alt="미션아이콘"
-          width="25px"
-          height="25px"
-      /></a>
-      <a href="mypage.html"
-        ><img
-          src="../image/info_click.png"
-          alt="정보아이콘"
-          width="25px"
-          height="25px"
-      /></a>
-      <a href="setup.html"
-        ><img
-          src="../image/setup.png"
-          alt="설정아이콘"
-          width="25px"
-          height="25px"
-      /></a>
-    </header>
-    <!-- 사용자 정보 -->
-    <div id="userTab">
-      <img id="userImg" src="../image/lion1.jpg" alt="사용자 이미지" />
-      <p>
-        <span id="username">닉네임</span>&nbsp;<span id="level">LV.()</span
-        ><br /><span id="title">초코초코칭호</span>
-      </p>
-    </div>
-    <hr />
-    <!-- 메뉴 -->
-    <div class="tab_menu">
-      <ul class="list">
-        <!-- 스탯 -->
-        <li class="is_on">
-          <a href="#stats" class="btn">스탯</a>
-          <div id="stats" class="cont">
-            <p class="menu-title">🚩 현재 레벨</p>
-            <div class="menu-detail">
-              <p>LV.()</p>
-              <p class="per">
-                <!-- max 100%, value 값에 따라 설정 -->
-                <progress id="progress" value="50" max="100"></progress>
-              <p id="per_value">50%</p>
-              </p>
-            </div>
-            <br />
-    
-            <p class="menu-title">💪🏻 현재 스탯</p>
-            <div class="menu-detail">
-              <p>학업&nbsp;&nbsp;<span id="study">10</span>개</p>
-              <p>사교&nbsp;&nbsp;<span id="social">10</span>개</p>
-              <p>경험&nbsp;&nbsp;<span id="exp">10</span>개</p>
-            </div>
-            <br />
-    
-            <p class="menu-title">📜 지금까지 완료한 미션</p>
-            <div class="menu-detail">
-              <p>학업&nbsp;&nbsp;<span id="study-complete">40</span>개</p>
-              <p>사교&nbsp;&nbsp;<span id="social-complete">100</span>개</p>
-              <p>경험&nbsp;&nbsp;<span id="exp-complete">57</span>개</p>
-              <p>총&nbsp;&nbsp;<span id="total"></span>개</p>
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="../styles/style.css" />
+  <title>📚MissionBook - MyPage</title>
+</head>
+
+<body>
+  <header>
+    <a href="index.html"><img src="../image/misson.png" alt="미션아이콘" width="25px" height="25px" /></a>
+    <a href="mypage.html"><img src="../image/info_click.png" alt="정보아이콘" width="25px" height="25px" /></a>
+    <a href="setup.html"><img src="../image/setup.png" alt="설정아이콘" width="25px" height="25px" /></a>
+  </header>
+  <!-- 사용자 정보 -->
+  <div id="userTab">
+    <img id="userImg" src="../image/lion1.jpg" alt="사용자 이미지" />
+    <p>
+      <span id="username">닉네임</span>&nbsp;<span id="level">LV.()</span><br /><span id="title">/</span>
+    </p>
+  </div>
+  <hr />
+  <!-- 메뉴 -->
+  <div class="tab_menu">
+    <ul class="list">
+      <!-- 스탯 -->
+      <li class="is_on">
+        <a href="#stats" class="btn">스탯</a>
+        <div id="stats" class="cont">
+          <p class="menu-title">🚩 현재 레벨</p>
+          <div class="menu-detail">
+            <p>LV.()</p>
+            <p class="per">
+              <!-- max 100%, value 값에 따라 설정 -->
+              <progress id="progress" value="50" max="100"></progress>
+            <p id="per_value">50%</p>
+            </p>
           </div>
-        </li>
-        <!-- 칭호 -->
-        <li>
-          <a href="#title" class="btn">칭호</a>
-          <div id="title" class="cont">
-            <div id="box" class="box">
-              <div id="palletBox" class="pallet">
-              </div>
-              <button id="apply" type="button">적용</button>
+          <br />
+
+          <p class="menu-title">💪🏻 현재 스탯</p>
+          <div class="menu-detail">
+            <p>학업&nbsp;&nbsp;<span id="study">10</span>개</p>
+            <p>사교&nbsp;&nbsp;<span id="social">10</span>개</p>
+            <p>경험&nbsp;&nbsp;<span id="exp">10</span>개</p>
           </div>
-          <br/>
+          <br />
+
+          <p class="menu-title">📜 지금까지 완료한 미션</p>
+          <div class="menu-detail">
+            <p>학업&nbsp;&nbsp;<span id="study-complete">40</span>개</p>
+            <p>사교&nbsp;&nbsp;<span id="social-complete">100</span>개</p>
+            <p>경험&nbsp;&nbsp;<span id="exp-complete">57</span>개</p>
+            <p>총&nbsp;&nbsp;<span id="total"></span>개</p>
+          </div>
+      </li>
+      <!-- 칭호 -->
+      <li>
+        <a href="#title" class="btn">칭호</a>
+        <div id="title" class="cont">
+          <!-- 팔레트 -->
+          <div id="box" class="box">
+            <div id="palletBox" class="pallet">
+
+            </div>
+            <button class="submit-btn" type="submit">적용</button>
+          </div>
+          <!-- 여기까지 팔레트 -->
+          <br />
           <div class="title-wrap">
-            <p class="title-text">칭호1</p>
-            <p class="title-text">칭호2</p>          
-            <p class="title-text">칭호3</p>         
-            <p class="title-text">칭호4</p>          
-            <p class="title-text">칭호5</p>
-            <p class="title-text">칭호6</p>
-            <p class="title-text">칭호7</p>          
-            <p class="title-text">칭호8</p>         
-            <p class="title-text">칭호9</p>          
-            <p class="title-text">칭호10</p>
-            <p class="title-text">칭호11</p>
-        </div>
+            <p class="title-text"  onclick="changeTitle()">칭호1</p>
+            <p class="title-text"  onclick="changeTitle()">칭호2</p>
+            <p class="title-text"  onclick="changeTitle()">칭호3</p>
+            <p class="title-text"  onclick="changeTitle()">칭호4</p>
           </div>
-        </li>
-        <!-- 완료 -->
-        <li>
-          <a href="#complete" class="btn">완료</a>
-          <div id="complete" class="cont">
-            <ul>
-              <li class="is_sub">
-                <a href="#sub-complete-study" class="sub-btn">📖</a>
-                <div id="sub-complete-study" class="sub-cont">
-                  <div class="sub-wrap-study">
-                    <span id="star-study">★</span>
-                    <p id="text-study">토익 200점 넘기</p>
-                  </div>
-                  <div class="sub-wrap-study">
-                    <span id="star-study">★</span>
-                    <p id="text-study">토익 200점 넘기</p>
-                  </div>
-                  <div class="sub-wrap-study">
-                    <span id="star-study">★</span>
-                    <p id="text-study">토익 200점 넘기</p>
-                  </div>
-                  <div class="sub-wrap-study">
-                    <span id="star-study">★</span>
-                    <p id="text-study">토익 200점 넘기</p>
-                  </div>
-                  <div class="sub-wrap-study">
-                    <span id="star-study">★</span>
-                    <p id="text-study">토익 200점 넘기</p>
-                  </div>
-              </div>
-            </li>
-            <li>
-              <a href="#sub-complete-social" class="sub-btn">🌼</a>
-              <div id="sub-complete-social" class="sub-cont">
-                <div class="sub-wrap-social">
-                  <p id="star-social">★</p>
-                  <p id="text-social">토익 200점 넘기</p>
-                </div>
-                <div class="sub-wrap-social">
-                  <p id="star-social">★</p>
-                  <p id="text-social">토익 200점 넘기</p>
-                </div>
-                <div class="sub-wrap-social">
-                  <p id="star-social">★</p>
-                  <p id="text-social">토익 200점 넘기</p>
-                </div>
-                <div class="sub-wrap-social">
-                  <p id="star-social">★</p>
-                  <p id="text-social">토익 200점 넘기</p>
-                </div>
-                <div class="sub-wrap-social">
-                  <p id="star-social">★</p>
-                  <p id="text-social">토익 200점 넘기</p>
-                  <div class="sub-wrap-social">
-                    <p id="star-social">★</p>
-                    <p id="text-social">토익 200점 넘기</p>
-                  </div>
-                </div>
-            </div>
-          </li>
-          <li >
-            <a href="#sub-complete-exp" class="sub-btn">🧭</a>
-            <div id="sub-complete-exp" class="sub-cont">
-              <div class="sub-wrap-exp">
-                <p id="star-exp">★</p>
-                <p id="text-exp">토익 200점 넘기</p>
-              </div>
-              <div class="sub-wrap-exp">
-                <p id="star-exp">★</p>
-                <p id="text-exp">토익 200점 넘기</p>
-              </div>
-              <div class="sub-wrap-exp">
-                <p id="star-exp">★</p>
-                <p id="text-exp">토익 200점 넘기</p>
-              </div>
-              <div class="sub-wrap-exp">
-                <p id="star-exp">★</p>
-                <p id="text-exp">토익 200점 넘기</p>
-              </div>
-              <div class="sub-wrap-exp">
-                <p id="star-exp">★</p>
-                <p id="text-exp">토익 200점 넘기</p>
-              </div>
-              <div class="sub-wrap-exp">
-                <p id="star-exp">★</p>
-                <p id="text-exp">토익 200점 넘기</p>
-              </div>
-          </div>
-        </li>
-          </ul>
         </div>
-        </li>
-      </ul>
-    </div>
-    <script src="../js/mypage.js"></script>
-  </body>
+      </li>
+      <!-- 완료 -->
+      <li>
+        <a href="#complete" class="btn">완료</a>
+        <div id="complete" class="cont">
+          <div class="main" style="text-align:center">
+
+            <input id="tab1" type="radio" name="tabs" checked>
+            <label for="tab1"><img src="../image/study.png" alt=""></label>
+
+            <input id="tab2" type="radio" name="tabs">
+            <label for="tab2"><img src="../image/getting.png" alt=""></label>
+
+            <input id="tab3" type="radio" name="tabs">
+            <label for="tab3"><img src="../image/experience.png" alt=""></label>
+
+            <!-- 1. 학업 -->
+            <section id="content1" style="margin-bottom:20px;">
+              <div class="sub-wrap-study">
+                <span id="star-study">★</span>
+                <p id="text-study">토익 200점 넘기</p>
+              </div>
+              <div class="sub-wrap-study">
+                <span id="star-study">★</span>
+                <p id="text-study">토익 200점 넘기</p>
+              </div>
+              <div class="sub-wrap-study">
+                <span id="star-study">★</span>
+                <p id="text-study">토익 200점 넘기</p>
+              </div>
+              <div class="sub-wrap-study">
+                <span id="star-study">★</span>
+                <p id="text-study">토익 200점 넘기</p>
+              </div>
+              <div class="sub-wrap-study">
+                <span id="star-study">★</span>
+                <p id="text-study">토익 200점 넘기</p>
+              </div>
+              <div class="sub-wrap-study">
+                <span id="star-study">★</span>
+                <p id="text-study">토익 200점 넘기</p>
+              </div>
+              <div class="sub-wrap-study">
+                <span id="star-study">★</span>
+                <p id="text-study">토익 200점 넘기</p>
+              </div>
+            </section>
+
+            <!-- 2. 사교 -->
+            <section id="content2" style="margin-bottom:20px;">
+              <div class="sub-wrap-social">
+                <span id="star-social">★</span>
+                <p id="text-social">토익 200점 넘기</p>
+              </div>
+              <div class="sub-wrap-social">
+                <span id="star-social">★</span>
+                <p id="text-social">토익 200점 넘기</p>
+              </div>
+              <div class="sub-wrap-social">
+                <span id="star-social">★</span>
+                <p id="text-social">토익 200점 넘기</p>
+              </div>
+              <div class="sub-wrap-social">
+                <span id="star-social">★</span>
+                <p id="text-social">토익 200점 넘기</p>
+              </div>
+              <div class="sub-wrap-social">
+                <span id="star-social">★</span>
+                <p id="text-social">토익 200점 넘기</p>
+              </div>
+              <div class="sub-wrap-social">
+                <span id="star-social">★</span>
+                <p id="text-social">토익 200점 넘기</p>
+              </div>
+            </section>
+            <!-- 3. 경험 -->
+            <section id="content3" style="margin-bottom:20px;">
+              <div class="sub-wrap-exp">
+                <span id="star-exp">★</span>
+                <p id="text-exp">토익 200점 넘기</p>
+              </div>
+              <div class="sub-wrap-exp">
+                <span id="star-exp">★</span>
+                <p id="text-exp">토익 200점 넘기</p>
+              </div>
+              <div class="sub-wrap-exp">
+                <span id="star-exp">★</span>
+                <p id="text-exp">토익 200점 넘기</p>
+              </div>
+              <div class="sub-wrap-exp">
+                <span id="star-exp">★</span>
+                <p id="text-exp">토익 200점 넘기</p>
+              </div>
+              <div class="sub-wrap-exp">
+                <span id="star-exp">★</span>
+                <p id="text-exp">토익 200점 넘기</p>
+              </div>
+            </section>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <script src="../js/mypage.js"></script>
+</body>
+
 </html>
