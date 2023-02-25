@@ -1,170 +1,186 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>login</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
     <style>
-        *{
-            font-family: 'Apple SD Gothic Neo';
-            font-style: normal;
-            font-weight: 700;
-            font-size: 20px;
-            line-height: 24px;
-        }
-        body{
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-            margin: 0;
-        }
-        #homeLogo{
-            margin-top: 166px;
-            width: 68px;
-            height: 68px;
-            background: #F5F5F5;
-            border: 0.5px solid #C0C0C0;
-            border-radius: 35px;
-        }
-        h1{
-            margin-top: 35px;
-            margin-bottom: 5px;
-            font-family: 'Apple SD Gothic Neo';
-            font-style: normal;
-            font-weight: 900;
-            font-size: 28px;
-            line-height: 34px;
-        }
-        p{
-            margin-top: 0;
-            margin-bottom: 122px;
-            font-style: normal;
-            font-weight: 700;
-            font-size: 18px;
-            line-height: 22px;
-            color: #666666;
-        }
-        input{
-            box-sizing: border-box;
-            width: 300px;
-            height: 60px;
-            background: #FDFDFD;
-            border: 0.8px solid #C0C0C0;
-            border-radius: 10px;
-            margin-bottom: 12px;
-            padding: 18px;
-        }
-        input::placeholder{
-            color: #A7A7A7;
-        }
-        input[type="submit"]{
-            background: #F2F2F2;
-            margin-top: 48px;
-            margin-bottom: 12px;
-            color: #666666;
-        }
-        a{
-            color: #666666;
-            text-decoration: none;
-            margin-bottom: 148px;
-            font-size: 15px;
-            line-height: 18px;
-        }
-        
-        /* 모달창 css */
-        .modal{
-            position: fixed;
-            top: 0; left: 0;
-            width: 100%; height: 100%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-        .md_overlay{
-            background: rgba(0, 0, 0, 0.25);
-            width: 100%; height: 100%;
-            position: absolute;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-        .md_content{
-            width: 300px; height: 230px;
-            position: relative;
-            background-color: white;
-            text-align: center;
-            border-radius: 5px;
-        }
-        .hidden{
-            display: none;
-        }
-        .md_content>h3{
-            color: #666666;
-            font-weight: 800;
-            font-size: 25px;
-            line-height: 30px;
-            margin-top: 42px;
-            margin-bottom: 14px;
-        }
-        .md_content>p{
-            font-weight: 700;
-            font-size: 18px;
-            line-height: 22px;
-            color: #7A7A7A;
-            margin-bottom: 49px;
-        }
-        .md_content>input{
-            margin-bottom: 28px;
-            box-sizing: border-box;
-            width: 150px; height: 45px;
-            padding: 10px;
-        }
+      * {
+        font-family: "Apple SD Gothic Neo";
+        font-style: normal;
+        font-weight: 700;
+        font-size: 20px;
+        line-height: 24px;
+      }
+
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        margin: 0;
+      }
+
+      #homeLogo {
+        margin-top: 166px;
+        width: 68px;
+        height: 68px;
+        background: #f5f5f5;
+        border: 0.5px solid #c0c0c0;
+        border-radius: 35px;
+        background-image: url("../image/logo.png");
+        background-size: cover;
+      }
+
+      h1 {
+        margin-top: 35px;
+        margin-bottom: 5px;
+        font-family: "Apple SD Gothic Neo";
+        font-style: normal;
+        font-weight: 900;
+        font-size: 28px;
+        line-height: 34px;
+      }
+      p {
+        margin-top: 0;
+        margin-bottom: 122px;
+        font-style: normal;
+        font-weight: 700;
+        font-size: 18px;
+        line-height: 22px;
+        color: #666666;
+      }
+      input {
+        box-sizing: border-box;
+        width: 300px;
+        height: 60px;
+        background: #fdfdfd;
+        border: 0.8px solid #c0c0c0;
+        border-radius: 10px;
+        margin-bottom: 12px;
+        padding: 18px;
+      }
+      input::placeholder {
+        color: #a7a7a7;
+      }
+      input[type="submit"] {
+        background: #f2f2f2;
+        margin-top: 48px;
+        margin-bottom: 12px;
+        color: #666666;
+      }
+      a {
+        color: #666666;
+        text-decoration: none;
+        margin-bottom: 148px;
+        font-size: 15px;
+        line-height: 18px;
+      }
+
+      /* 모달창 css */
+      .modal {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .md_overlay {
+        background: rgba(0, 0, 0, 0.25);
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .md_content {
+        width: 300px;
+        height: 230px;
+        position: relative;
+        background-color: white;
+        text-align: center;
+        border-radius: 5px;
+      }
+      .hidden {
+        display: none;
+      }
+      .md_content > h3 {
+        color: #666666;
+        font-weight: 800;
+        font-size: 25px;
+        line-height: 30px;
+        margin-top: 42px;
+        margin-bottom: 14px;
+      }
+      .md_content > p {
+        font-weight: 700;
+        font-size: 18px;
+        line-height: 22px;
+        color: #7a7a7a;
+        margin-bottom: 49px;
+      }
+      .md_content > input {
+        margin-bottom: 28px;
+        box-sizing: border-box;
+        width: 150px;
+        height: 45px;
+        padding: 10px;
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <div id="homeLogo"></div>
     <h1>MISSION BOOK</h1>
     <p>새내기를 위한🌱</p>
     <form action="prolog.html">
-    <input type="text" name="id" placeholder="아이디" size="35"/><br/>
-    <input type="password" name="password" placeholder="비밀번호" size="35"/><br/>
-    <input type="submit" name="login" value="로그인" />
+      <input type="text" name="id" placeholder="아이디" size="35" /><br />
+      <input
+        type="password"
+        name="password"
+        placeholder="비밀번호"
+        size="35"
+      /><br />
+      <input type="submit" name="login" value="로그인" />
     </form>
     <a href="join.html">회원가입</a>
 
     <!-- 모달창 -->
     <div class="modal hidden">
-        <div class="md_overlay">
-            <div class="md_content">
-                <h3>로그인 오류</h3>
-                <p>로그인 정보가 잘못되었습니다.</p>
-                <input type="button" name="loginErrorModal" value="확인"/>
-            </div>
+      <div class="md_overlay">
+        <div class="md_content">
+          <h3>로그인 오류</h3>
+          <p>로그인 정보가 잘못되었습니다.</p>
+          <input type="button" name="loginErrorModal" value="확인" />
         </div>
+      </div>
     </div>
 
     <script>
-        // 모달창의 확인 버튼 누를시 모달창 없어짐
-        $('input[name=loginErrorModal]').click(()=>{$('.modal').addClass('hidden')});
-        // 로그인 입력 오류시 모달창 보임
-        // $('input[name=login]').click(()=>{$('.modal').removeClass('hidden')});
-        
-        // 비밀번호 입력 오류시 모달창에 바뀔 텍스트
-        let bool = false;
-        if (bool) {
-            $('.md_content > h3').text('비밀번호 오류');
-            $('.md_content > p').text('비밀번호가 잘못되었습니다.');
-        }
+      // 모달창의 확인 버튼 누를시 모달창 없어짐
+      $("input[name=loginErrorModal]").click(() => {
+        $(".modal").addClass("hidden");
+      });
+      // 로그인 입력 오류시 모달창 보임
+      // $('input[name=login]').click(()=>{$('.modal').removeClass('hidden')});
 
-        // 맨 처음 로그인한게 아닐시 프롤로그 페이지가 아닌 미션화면으로 넘어감
-        let bool2 = false;
-        if(bool2){
-            $('form').removeAttr('action', 'index.html');
-        }
+      // 비밀번호 입력 오류시 모달창에 바뀔 텍스트
+      let bool = false;
+      if (bool) {
+        $(".md_content > h3").text("비밀번호 오류");
+        $(".md_content > p").text("비밀번호가 잘못되었습니다.");
+      }
 
+      // 맨 처음 로그인한게 아닐시 프롤로그 페이지가 아닌 미션화면으로 넘어감
+      let bool2 = false;
+      if (bool2) {
+        $("form").removeAttr("action", "index.html");
+      }
     </script>
-</body>
+  </body>
 </html>

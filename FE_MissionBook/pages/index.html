@@ -1,66 +1,453 @@
 <!DOCTYPE html>
 <html lang="ko">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../styles/style_yun.css">
-    <title>Mission Book</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../styles/style(1).css" />
 
-</head>
-<body>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
+    <title>studypage</title>
+  </head>
+  <body>
     <!-- 상단바 (네비게이션) -->
-        <header>
-            <a href="index.html"><img src="../image/misson_click.png" alt="미션아이콘" width="25px" height="25px"/></a>
-            <a href="mypage.html"><img src="../image/info.png" alt="정보아이콘" width="25px" height="25px"/></a>
-            <a href="setup.html"><img src="../image/setup.png" alt="설정아이콘" width="25px" height="25px"/></a>
-    
-        </header>
+    <div class="hd-container">
+      <header>
+        <a href="index.html"
+          ><img
+            src="../image/misson_click.png"
+            alt="미션아이콘"
+            width="25px"
+            height="25px"
+        /></a>
+        <a href="mypage.html"
+          ><img
+            src="../image/info.png"
+            alt="정보아이콘"
+            width="25px"
+            height="25px"
+        /></a>
+        <a href="setup.html"
+          ><img
+            src="../image/setup.png"
+            alt="설정아이콘"
+            width="25px"
+            height="25px"
+        /></a>
+      </header>
 
-    <!--사용자 정보 -->
-    <section class="hd">
-        <div class="container">
-            <div>
-                <a class="name">정혜선</ㅁ>
-                <a class="level">Lv.7</a>
-            </div>
-            <div>
-                <p class="personal explanation">민트초코파 </p>
-            </div>
-    
-            
+      <!--사용자 정보 -->
+      <section class="hd">
+        <div class="hd-container">
+          <div class="profileimg">
+            <img src="../image/profile.png" alt="프로필이미지" />
+          </div>
+          <div class="user-info">
+            <a class="name">정혜선</a>
+            <a class="level">Lv.7</a> <br />
+            <a class="personal-explanation">민트초코파 </a>
+            <a class="graduate-btn" href="ending.html"
+              ><img
+                src="../image/graduate-btn.png"
+                alt="설정아이콘"
+                width="25px"
+                height="25px"
+            /></a>
+          </div>
         </div>
-    </section>
+      </section>
+    </div>
+
+    <!-- 안내매세지 모달창 -->
+    <div class="md_overlay3 hidden"></div>
+    <div class="md_position3 hidden">
+      <div class="md_content3">
+        <div class="title_position">
+          <img
+            src="../image/celebrate_icon.png"
+            alt="왼쪽아이콘"
+            width="25px"
+            height="25px"
+            class="left_icon"
+          />
+          <h3>축하합니다!</h3>
+          <img
+            src="../image/celebrate_icon_reverse.png"
+            alt="오른쪽아이콘"
+            width="25px"
+            height="25px"
+            class="right_icon"
+          />
+        </div>
+        <p>레벨이 올랐습니다.</p>
+        <button name="loginErrorModal">확인</button>
+      </div>
+    </div>
+
+    <!-- 졸업 안내 모달창 -->
+    <div class="md_overlay2 hidden"></div>
+    <div class="md_position2 hidden">
+      <div class="md_content2">
+        <div class="title_position">
+          <img
+            src="../image/graduation_icon.png"
+            alt="왼쪽아이콘"
+            width="25px"
+            height="25px"
+            class="left_icon"
+          />
+          <h3>엔딩</h3>
+          <img
+            src="../image/graduation_icon.png"
+            alt="오른쪽아이콘"
+            width="25px"
+            height="25px"
+            class="right_icon"
+          />
+        </div>
+        <p class="first_p">
+          12월 31일이 되었습니다. <br />
+          지금 바로 엔딩을 확인해보세요!
+        </p>
+        <br />
+        <p class="second_p">
+          <span>주의사항</span>: 지금부터 미션을 성공해도 <br />
+          더 이상의 스탯, 레벨 변화는 없습니다.
+        </p>
+        <button name="loginErrorModal">확인</button>
+      </div>
+    </div>
+
+    <!-- 밑에 올라오는거 모달창 -->
+    <div class="md_overlay hidden"></div>
+
+    <div class="md_content hidden">
+      <div></div>
+      <img
+        src="../image/blue_star.png"
+        alt="별"
+        width="25px"
+        height="25px"
+        class="first"
+      />
+      <img
+        src="../image/blue_star.png"
+        alt="별"
+        width="25px"
+        height="25px"
+        class="second"
+      />
+      <img
+        src="../image/blue_star.png"
+        alt="별"
+        width="25px"
+        height="25px"
+        class="third"
+      />
+      <h3>3과목 A+ 받기</h3>
+      <p>
+        대학교 과목 중 3개의 과목을 A+ 받습니다. <br />
+        그래도 됩니다.
+      </p>
+      <form>
+        <div class="ongoing">
+          <img
+            src="../image/minus_icon.png"
+            alt="마이너스 버튼"
+            width="40px"
+            height="40px"
+            class="minus"
+          />
+          <input type="text" name="misson_check_value" value="0" readonly />
+          <!-- 백엔드로 넘어갈 미션 중간점검 값 -->
+          <img
+            src="../image/sum_icon.png"
+            alt="플러스 버튼"
+            width="40px"
+            height="40px"
+            class="plus"
+          /><br />
+        </div>
+        <div>
+          <input type="button" name="give_up" value="포기" />
+          <input type="submit" name="changeNickModal" value="적용" />
+        </div>
+      </form>
+    </div>
 
     <!--미션 탭 -->
-    <div class="mission-tab">
-        <div class="mis-btn"> 
-            <a href="index.html"><img src="../image/study.png" alt="학업아이콘"/></a> 
-        </div>
-        <div class="mis-btn"> 
-            <a href="gettingpage.html"><img src="../image/getting.png" alt="사교아이콘" /></a>
-        </div>
-        
-        <div class="mis-btn"> 
-            <a href="#"><img src="../image/experience.png" alt="경험아이콘" /></a>
-        </div>
+    <div class="mission-tab" style="text-align: center">
+      <input id="tab1" type="radio" name="tabs" checked />
+      <label for="tab1" class="bluemission"
+        ><img src="../image/study.png" alt=""
+      /></label>
 
-        
+      <input id="tab2" type="radio" name="tabs" />
+      <label for="tab2" class="yellowmission"
+        ><img src="../image/getting.png" alt=""
+      /></label>
+
+      <input id="tab3" type="radio" name="tabs" />
+      <label for="tab3" class="pinkmission"
+        ><img src="../image/experience.png" alt=""
+      /></label>
     </div>
 
-    
-
-    <div class="missions">
-        <p class="msg"><span style:bold;>학업</span>에 관련된 미션을 해결하세요 </p>
-        <div>
-            <div class="mission1">3과목 A+ 받기</div>
-            <div class="mission2">책 1권 읽고 독후감 쓰기</div>
-            <div class="mission3">책 40권 읽기</div>
-            <div class="mission4">토익 200점 넘기</div>
-            <div class="mission5">과제 끝내기</div>
-            <div class="mission6">조기졸업 하기</div>
+    <!--미션 항목-->
+    <section class="main-sec">
+      <p class="msg">
+        <span class="msg-stress">학업</span>에 관련된 미션을 해결하세요
+      </p>
+      <div class="missions">
+        <!--mission1~3은 진행 중 미션 -->
+        <div class="modal_connect" style="background-color: transparent">
+          <div class="mission1">
+            <div class="star">
+              <img
+                src="../image/blue_star.png"
+                alt="별"
+                width="20px"
+                height="20px"
+                class="first1"
+              />
+            </div>
+            <div class="mission-contents">
+              <h2 class="mis-name">3과목 A+ 받기</h2>
+            </div>
+          </div>
         </div>
-    </div>
 
-</body>
+        <div class="modal_connect" style="background-color: transparent">
+          <div class="mission2">
+            <div class="star">
+              <img
+                src="../image/blue_star.png"
+                alt="별"
+                width="20px"
+                height="20px"
+                class="first1"
+              />
+            </div>
+            <div class="mission-contents">
+              <h2 class="mis-name">책 1권 읽고<br />독후감 쓰기</h2>
+            </div>
+          </div>
+        </div>
+
+        <div class="modal_connect">
+          <div class="mission3">
+            <div class="star">
+              <img
+                src="../image/blue_star.png"
+                alt="별"
+                width="20px"
+                height="20px"
+                class="first1"
+              />
+            </div>
+            <div class="mission-contents">
+              <h2 class="mis-name">책 40권 읽기</h2>
+            </div>
+          </div>
+        </div>
+
+        <!--진행 전 미션 -->
+        <div class="modal_connect">
+          <div class="mission4">
+            <div class="star">
+              <img
+                src="../image/blue_star.png"
+                alt="별"
+                width="20px"
+                height="20px"
+                class="first1"
+              />
+            </div>
+            <div class="mission-contents">
+              <h2 class="mis-name">토익 200점 넘기</h2>
+            </div>
+          </div>
+        </div>
+
+        <div class="modal_connect">
+          <div class="mission5">
+            <div class="star">
+              <img
+                src="../image/blue_star.png"
+                alt="별"
+                width="20px"
+                height="20px"
+                class="first1"
+              />
+            </div>
+            <div class="mission-contents">
+              <h2 class="mis-name">과제 끝내기</h2>
+            </div>
+          </div>
+        </div>
+
+        <div class="modal_connect">
+          <div class="mission6">
+            <div class="star">
+              <img
+                src="../image/blue_star.png"
+                alt="별"
+                width="20px"
+                height="20px"
+                class="first1"
+              />
+            </div>
+            <div class="mission-contents">
+              <h2 class="mis-name">조기졸업하기</h2>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <script>
+      //모달창 열고 닫기 테스트 (bool이 true면 열고 false면 닫음)
+      $(".modal_connect").click(() => {
+        $(".md_overlay").removeClass("hidden");
+        $(".md_content").removeClass("hidden");
+      });
+      //배경 까만색 누르면 모달창 닫힘
+      $(".md_overlay").click(() => {
+        $(".md_overlay").addClass("hidden");
+        $(".md_content").addClass("hidden");
+      });
+      let bool = false;
+      if (bool) $(".modal").removeClass("hidden");
+
+      //포기 버튼 누르면 모달창 사라짐
+      $("input[name=give_up]").click(() => {
+        $(".modal").addClass("hidden");
+      });
+
+      //미션 블럭 누르면 모달창 등장
+      $("input[name=mission1]").click(() => {
+        $(".modal").removeClass("hidden");
+      });
+
+      //코드가 더럽지만 일단.. 마이너스 이미지 누르면  input의 value값이 3->2->1->0
+      $(".minus").click(() => {
+        if ($("input[name=misson_check_value]").attr("value") == 3) {
+          $("input[name=misson_check_value]").attr("value", "2");
+        } else if ($("input[name=misson_check_value]").attr("value") == 2) {
+          $("input[name=misson_check_value]").attr("value", "1");
+        } else if ($("input[name=misson_check_value]").attr("value") == 1) {
+          $("input[name=misson_check_value]").attr("value", "0");
+        } else {
+          $("input[name=misson_check_value]").attr("value", "0");
+        }
+      });
+
+      //코드가 더럽지만 일단.. 플러스 이미지 누르면  input의 value값이 0->1->2->3
+      $(".plus").click(() => {
+        if ($("input[name=misson_check_value]").attr("value") == 0) {
+          $("input[name=misson_check_value]").attr("value", "1");
+        } else if ($("input[name=misson_check_value]").attr("value") == 1) {
+          $("input[name=misson_check_value]").attr("value", "2");
+        } else if ($("input[name=misson_check_value]").attr("value") == 2) {
+          $("input[name=misson_check_value]").attr("value", "3");
+        } else {
+          $("input[name=misson_check_value]").attr("value", "3");
+        }
+      });
+
+      //학업미션일때 별 색깔 & 개수
+      $(".md_content > img").attr("src", "../image/blue_star.png"); //파란색 별로 바꾸기
+
+      //사교미션일때 별 색깔 & 개수
+      $(".md_content > img").attr("src", "../image/yellow_star.png"); // 노란색 별로 바꾸기
+      //만약 별 2개짜리 미션일때
+      $(".md_content > .third").remove(); //3번째 별 지움
+      //만약 별 1개짜리 미션일때
+      $(".md_content > .third").remove(); //3번쨰 별 지움
+      $(".md_content > .second").remove(); //2번째 별 지움
+
+      //경험미션일때 별 색깔 & 개수
+      $(".md_content > img").attr("src", "../image/pink_star.png"); // 핑크색 별로 바꾸기
+
+      //해당하는 미션이름과 해당 미션 내용 바꾸기
+      $(".md_content > h3").text("책 1권 읽고 독후감 쓰기"); //미션이름
+      $(".md_content > p").html(
+        "아무 책이나 1권을 읽고 독후감을 씁니다. <br/> 그래도 됩니다."
+      ); //해당 미션 내용
+
+      //A+ 3과목 받기와 같이 진행중 상황 체크 안해도 되는 미션일때 마이너스,플러스 없애기
+      $("div.ongoing > img").remove();
+      $("div.ongoing > input").remove();
+
+      //진행 전 미션일때 -> 추가하기 버튼으로 변경
+      $("input[name=give_up]").remove();
+      $("input[name=changeNickModal]").attr("value", "추가하기");
+
+      $(".bluemission").click(() => {
+        $(
+          ".mission1, .mission2, .mission3, .mission4, .mission5, .mission6"
+        ).css("background", "#F6FAFF");
+      });
+      $(".yellowmission").click(() => {
+        $(
+          ".mission1, .mission2, .mission3, .mission4, .mission5, .mission6"
+        ).css("background", "#FFFCF2");
+      });
+      $(".pinkmission").click(() => {
+        $(
+          ".mission1, .mission2, .mission3, .mission4, .mission5, .mission6"
+        ).css("background", "#FFF8F8");
+      });
+
+      $(".bluemission").click(() => {
+        $(".first1").attr("src", "../image/blue_star.png");
+      });
+      $(".yellowmission").click(() => {
+        $(".first1").attr("src", "../image/yellow_star.png");
+      });
+      $(".pinkmission").click(() => {
+        $(".first1").attr("src", "../image/pink_star.png");
+      });
+
+      $(".bluemission").click(() => {
+        $(".msg-stress").text("학업");
+      });
+      $(".yellowmission").click(() => {
+        $(".msg-stress").text("매력");
+      });
+      $(".pinkmission").click(() => {
+        $(".msg-stress").text("경험");
+      });
+
+      // // 배경의 까만 부분 누르면 모달창 사라짐 (frame 31 : 엔딩 모달창의 경우만 적용)
+      // $('.md_overlay2').click(()=>{$('.md_position2').addClass('hidden')});
+
+      // 모달창 제목의 왼쪽 아이콘 바꾸기 (아이콘 이미지 파일(~_icon) : celebrate / gift / graduation(학사모) / siren(사이렌) / throphy)
+      $(".md_content3 .left_icon").attr("src", "../image/trophy_icon.png");
+
+      // 모달창 제목의 오른쪽 아이콘 바꾸기
+      $(".md_content3 .right_icon").attr("src", "../image/trophy_icon.png");
+
+      // 모달창 제목 바꾸기
+      $(".md_content3 h3").text("미션 성공");
+
+      // 모달창 내용 바꾸기
+      $(".md_content3 p").html(
+        "<span>스탯</span>을 달성하여 선물이 왔습니다. <br/> 칭호 창을 확인해보세요!"
+      );
+
+      // frame 28처럼 '스탯', '레벨'과 같이 색깔을 진하게 하려면 모달창 내용에 <span>태그로 감싸주고 css 바꾸기
+      $(".md_content3 span").css("color", "#666666");
+
+      // 모달창의 확인 버튼 누르면 모달창 사라짐
+      $(".md_content3 button").click(() => {
+        $(".md_position3").addClass("hidden");
+        $(".md_overlay3").addClass("hidden");
+      }); // 안내메세지
+      $(".md_content2 button").click(() => {
+        $(".md_position2").addClass("hidden");
+        $(".md_overlay2").addClass("hidden");
+      }); // 졸업메세지
+    </script>
+  </body>
 </html>
