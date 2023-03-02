@@ -71,7 +71,7 @@
         });
 
         // 바디 클릭시 프롤로그 다음 페이지로 넘어감
-        $('body').click(()=>{ window.location.href = "{% url 'prolog' num=2 %}"; });
+        $('body').click(()=>{ window.location.href = "{% url 'login:prolog' num=2 %}"; });
 
     </script>
 </body>

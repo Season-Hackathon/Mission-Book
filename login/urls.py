@@ -3,9 +3,9 @@ from . import views
 from Mission_Book import settings
 from django.conf.urls.static import static
 
+app_name='login'
+
 urlpatterns = [
-    path('',views.index_null, name='index_null'),
-    path('index/<int:category>',views.index, name='index'),
     path('join/', views.join, name='join'),
     path('prolog/<int:num>',views.prolog, name='prolog'),
     path('login/', views.LoginView.as_view(), name='login'),
