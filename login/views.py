@@ -175,7 +175,7 @@ def select_title(request):
         'selectable_titles': selectable_titles,
         'non_selectable_titles': non_selectable_titles,
     }
-    return redirect('mypage')
+    return redirect('login:mypage')
 
 
 def change_title(request, title):
@@ -190,7 +190,7 @@ def change_title(request, title):
         member = Member.objects.get(user_id=user_id)
         member.title = title
         member.save()
-    return redirect(select_title)
+    return redirect('login:select_title')
 
 
 def change_title_color(request, color):

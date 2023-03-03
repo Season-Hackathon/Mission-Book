@@ -54,7 +54,7 @@
                 {{ some_mission.checklist.title }}
             {% endfor %}
             {% for some_mission in some_missionlist_pre %}
-                <p><a href="{% url 'checklist:mission_modal' some_mission.id %}">{{ some_mission.checklist.title }}</a></p>
+                <p><a href="{% url 'checklist:mission_modal' some_mission.checklist_id %}">{{ some_mission.checklist.title }}</a></p>
             {% endfor %}
 
         </div>

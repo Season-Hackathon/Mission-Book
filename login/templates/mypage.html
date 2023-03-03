@@ -72,7 +72,7 @@
           <br/>
           <div class="title-wrap">
             {% for title in selectable_titles %}
-            <p class="title-text"><a href="{% url 'change_title' title.id %}?title_id={{ title.id }}">{{ title }}</a></p>
+            <p class="title-text"><a href="{% url 'login:change_title' title.id %}?title_id={{ title.id }}">{{ title }}</a></p>
             {% endfor %}
         </div>
           </div>
