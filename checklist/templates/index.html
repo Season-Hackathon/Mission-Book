@@ -7,58 +7,102 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{% static 'style_yun.css' %}">
     <title>Mission Book</title>
+    <style>
+        .missions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
 
+.mission-box {
+  width: 45%;
+  margin: 10px;
+  background-color: white;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  text-align: center;
+  padding: 10px;
+  overflow: auto; /* 넘치는 내용 생략 */
+    display : inline-block;
+    margin-right:0px;
+    height: 10em;
+    line-height: 130px;
+}
+
+.mission-box h3 {
+  font-size: 16px;
+  margin-bottom: 5px;
+  {#overflow: hidden;#}
+  {#text-overflow: ellipsis; /* 넘치는 글자 생략 */#}
+  {#white-space: nowrap; /* 줄바꿈 방지 */#}
+}
+
+.mission-box p {
+  font-size: 14px;
+  margin-bottom: 10px;
+  color: gray;
+  {#overflow: hidden;#}
+  {#text-overflow: ellipsis; /* 넘치는 글자 생략 */#}
+  {#white-space: nowrap; /* 줄바꿈 방지 */#}
+}
+    </style>
 </head>
 <body>
-    <!-- 상단바 (네비게이션) -->
-        <header>
-            <a href="{% url 'checklist:index_null' %}"><img src="{% static 'misson_click.png' %}" alt="미션아이콘" width="25px" height="25px"/></a>
-            <a href="{% url 'login:mypage' %}"><img src="{% static 'info.png' %}" alt="정보아이콘" width="25px" height="25px"/></a>
-            <a href="{% url 'login:setup' %}"><img src="{% static 'setup.png' %}" alt="설정아이콘" width="25px" height="25px"/></a>
-    
-        </header>
+<!-- 상단바 (네비게이션) -->
+<header>
+    <a href="{% url 'checklist:index_null' %}"><img src="{% static 'misson_click.png' %}" alt="미션아이콘" width="25px"
+                                                    height="25px"/></a>
+    <a href="{% url 'login:mypage' %}"><img src="{% static 'info.png' %}" alt="정보아이콘" width="25px" height="25px"/></a>
+    <a href="{% url 'login:setup' %}"><img src="{% static 'setup.png' %}" alt="설정아이콘" width="25px" height="25px"/></a>
 
-    <!--사용자 정보 -->
-    <section class="hd">
-        <div class="container">
-            <div>
-                <a class="name">{{user.name}}</a>>
-                <a class="level">Lv.{{ user.total_exp|add:0 }}</a>
-            </div>
-            <div>
-                <p class="personal explanation">{% if user.title %}{{user.title}}{% else %} 칭호없음 {% endif %}</p>
-            </div>
-    
-            
-        </div>
-    </section>
+</header>
 
-    <!--미션 탭 -->
-    <div class="mission-tab">
-        <div class="mis-btn">
-            <a href="{% url 'checklist:index' 1 %}"><img src="{% static 'study.png' %}" alt="학업아이콘"/></a>
-        </div>
-        <div class="mis-btn">
-            <a href="{% url 'checklist:index' 2 %}"><img src="{% static 'getting.png' %}" alt="사교아이콘" /></a>
-        </div>
-
-        <div class="mis-btn">
-            <a href="{% url 'checklist:index' 3 %}"><img src="{% static 'experience.png' %}" alt="경험아이콘" /></a>
-        </div>
-    </div>
-
-    <div class="missions">
-        <p class="msg"><span style:bold;>학업</span>에 관련된 미션을 해결하세요 </p>
+<!--사용자 정보 -->
+<section class="hd">
+    <div class="container">
         <div>
-            {% for some_mission in some_missionlist_pro %}
-                {{ some_mission.checklist.title }}
-            {% endfor %}
-            {% for some_mission in some_missionlist_pre %}
-                <p><a href="{% url 'checklist:mission_modal' some_mission.checklist_id %}">{{ some_mission.checklist.title }}</a></p>
-            {% endfor %}
-
+            <a class="name">{{ user.name }}</a>>
+            <a class="level">Lv.{{ user.total_exp|add:0 }}</a>
         </div>
+        <div>
+            <p class="personal explanation">{% if user.title %}{{ user.title }}{% else %} 칭호없음 {% endif %}</p>
+        </div>
+
+
     </div>
+</section>
+
+<!--미션 탭 -->
+<div class="mission-tab">
+    <div class="mis-btn">
+        <a href="{% url 'checklist:index' 1 %}"><img src="{% static 'study.png' %}" alt="학업아이콘"/></a>
+    </div>
+    <div class="mis-btn">
+        <a href="{% url 'checklist:index' 2 %}"><img src="{% static 'getting.png' %}" alt="사교아이콘"/></a>
+    </div>
+
+    <div class="mis-btn">
+        <a href="{% url 'checklist:index' 3 %}"><img src="{% static 'experience.png' %}" alt="경험아이콘"/></a>
+    </div>
+</div>
+
+<div class="missions">
+    <p class="msg"><span style:bold;>학업</span>에 관련된 미션을 해결하세요 </p>
+    <div class="mission-container">
+        {% for some_mission in some_missionlist_pro %}
+            <div class="mission-box">
+                <a href="{% url 'checklist:mission_modal' some_mission.checklist_id %}">{{ some_mission.checklist.title }}</a>
+            </div>
+        {% endfor %}
+        {% for some_mission in some_missionlist_pre %}
+            <div class="mission-box">
+                <h3>
+                    <a href="{% url 'checklist:mission_modal' some_mission.checklist_id %}">{{ some_mission.checklist.title }}</a>
+                </h3>
+            </div>
+        {% endfor %}
+    </div>
+</div>
 
 </body>
 </html>

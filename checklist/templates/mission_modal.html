@@ -146,8 +146,17 @@
             {{ member_checklist.checklist.content }}
           </p>
           <form action="{% url 'checklist:mission_modal' member_checklist.checklist_id %}" method="post" >
+
             {% csrf_token %}
-            <div>
+
+              {% if member_checklist.status == -1 %}
+              <div>
+                  <input type="submit" name="checklist_add" value="추가하기" />
+              </div>
+              {% else %}
+          {% if member_checklist.checklist.is_complete_num == True %}
+
+                  <div>
               <img
                 id="button_name"
                 value="minus"
@@ -160,20 +169,15 @@
               />
               <input type="text" name="misson_check_value" value="0" readonly />
               <!-- 백엔드로 넘어갈 미션 중간점검 값 -->
-                <button>
                 <img
                 src="{% static 'sum_icon.png' %}"
                 alt="플러스 버튼"
                 width="40px"
                 height="40px"
                 class="plus"
-              /></button><br />
+              /><br />
             </div>
-              {% if member_checklist.status == -1 %}
-              <div>
-                  <input type="submit" name="checklist_add" value="추가하기" />
-              </div>
-              {% else %}
+              {% endif %}
             <div>
               <input type="submit" name="give_up" value="포기" />
               <input type="submit" name="changeNickModal" value="적용" />
@@ -193,57 +197,34 @@
       $("input[name=give_up]").click(() => {
         $(".modal").addClass("hidden");
       });
-  {##}
-  {#      // Get minus, plus buttons and input field#}
-  {#const minusBtn = document.querySelector(".minus");#}
-  {#const plusBtn = document.querySelector(".plus");#}
-  {#const inputField = document.querySelector("#mission_check_value");#}
-  {##}
-  {#// Get the maximum value of the input field from the backend#}
-  {#const max = {{ member_checklist.checklist.complete_num }};#}
-  {##}
-  {#// Add click event listener to minus button#}
-  {#minusBtn.addEventListener("click", () => {#}
-  {#  let value = parseInt(inputField.value);#}
-  {#  if (value > 0) {#}
-  {#    inputField.value = value - 1;#}
-  {#  }#}
-  {#});#}
-  {##}
-  {#// Add click event listener to plus button#}
-  {#plusBtn.addEventListener("click", () => {#}
-  {#  let value = parseInt(inputField.value);#}
-  {#  if (value < max) {#}
-  {#    inputField.value = value + 1;#}
-  {#  }#}
-  {#});#}
 
-      {#//코드가 더럽지만 일단.. 마이너스 이미지 누르면  input의 value값이 3->2->1->0#}
-      {#$(".minus").click(() => {#}
-      {#  if ($("input[name=misson_check_value]").attr("value") == 3) {#}
-      {#    $("input[name=misson_check_value]").attr("value", "2");#}
-      {#  } else if ($("input[name=misson_check_value]").attr("value") == 2) {#}
-      {#    $("input[name=misson_check_value]").attr("value", "1");#}
-      {#  } else if ($("input[name=misson_check_value]").attr("value") == 1) {#}
-      {#    $("input[name=misson_check_value]").attr("value", "0");#}
-      {#  } else {#}
-      {#    $("input[name=misson_check_value]").attr("value", "0");#}
-      {#  }#}
-      {##}
-      {#});#}
-      {##}
-      {#//코드가 더럽지만 일단.. 플러스 이미지 누르면  input의 value값이 0->1->2->3#}
-      {#$(".plus").click(() => {#}
-      {#  if ($("input[name=misson_check_value]").attr("value") == 0) {#}
-      {#    $("input[name=misson_check_value]").attr("value", "1");#}
-      {#  } else if ($("input[name=misson_check_value]").attr("value") == 1) {#}
-      {#    $("input[name=misson_check_value]").attr("value", "2");#}
-      {#  } else if ($("input[name=misson_check_value]").attr("value") == 2) {#}
-      {#    $("input[name=misson_check_value]").attr("value", "3");#}
-      {#  } else {#}
-      {#    $("input[name=misson_check_value]").attr("value", "3");#}
-      {#  }#}
-      {#});#}
+
+      //코드가 더럽지만 일단.. 마이너스 이미지 누르면  input의 value값이 3->2->1->0
+      $(".minus").click(() => {
+        if ($("input[name=misson_check_value]").attr("value") == 3) {
+          $("input[name=misson_check_value]").attr("value", "2");
+        } else if ($("input[name=misson_check_value]").attr("value") == 2) {
+          $("input[name=misson_check_value]").attr("value", "1");
+        } else if ($("input[name=misson_check_value]").attr("value") == 1) {
+          $("input[name=misson_check_value]").attr("value", "0");
+        } else {
+          $("input[name=misson_check_value]").attr("value", "0");
+        }
+
+      });
+
+      //코드가 더럽지만 일단.. 플러스 이미지 누르면  input의 value값이 0->1->2->3
+      $(".plus").click(() => {
+        if ($("input[name=misson_check_value]").attr("value") == 0) {
+          $("input[name=misson_check_value]").attr("value", "1");
+        } else if ($("input[name=misson_check_value]").attr("value") == 1) {
+          $("input[name=misson_check_value]").attr("value", "2");
+        } else if ($("input[name=misson_check_value]").attr("value") == 2) {
+          $("input[name=misson_check_value]").attr("value", "3");
+        } else {
+          $("input[name=misson_check_value]").attr("value", "3");
+        }
+      });
     </script>
   </body>
 </html>

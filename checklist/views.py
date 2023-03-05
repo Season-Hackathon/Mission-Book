@@ -56,15 +56,7 @@ def mission_modal(request, mission_id):
     member = Member.objects.get(id=request.user.id)
     member_checklist = MemberChecklist.objects.get(member=member.user_id, checklist_id=mission_id)
 
-    if request.method == 'POST' :
-        mission_check_value = int(request.POST.get('mission_check_value', 0))
-        if request.POST.get('button_name') == 'minus' and mission_check_value > 0:
-            mission_check_value -= 1
-        elif request.POST.get(
-                'button_name') == 'plus' and mission_check_value < member_checklist.checklist.complete_num:
-            mission_check_value += 1
-        else:
-            pass  # do nothing
+
     # 추가하기
     if request.method == 'POST' and request.POST.get('checklist_add') == '추가하기':
         member_checklist.status = 0
