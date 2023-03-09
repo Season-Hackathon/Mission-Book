@@ -134,7 +134,7 @@
         {{ form.password }}<br />
     <input type="submit" name="login" value="로그인" />
     </form>
-    <a href="{% url 'join' %}">회원가입</a>
+    <a href="{% url 'login:join' %}">회원가입</a>
 
     {% if form.user_id.errors %}
     <!-- 모달창 -->
@@ -149,7 +149,7 @@
     </div>
     <script>
         // 모달창의 확인 버튼 누를시 모달창 없어짐
-        $('input[name=loginErrorModal]').click(()=>{location.href = "{% url 'login' %}";});
+        $('input[name=loginErrorModal]').click(()=>{location.href = "{% url 'login:login' %}";});
         // 로그인 입력 오류시 모달창 보임
         $('input[name=login]').click(()=>{$('.modal').removeClass('hidden')});
     </script>

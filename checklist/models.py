@@ -21,5 +21,5 @@ class Checklist(models.Model):
     
 class MemberChecklist(models.Model):
     member = models.CharField(max_length=20)
-    checklist = models.ForeignKey(Checklist, on_delete=models.CASCADE)
+    checklist = models.ForeignKey(Checklist, on_delete=models.CASCADE, related_name="MemberChecklist")
     status = models.IntegerField(default=-1)    

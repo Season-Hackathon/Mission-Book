@@ -30,44 +30,7 @@ def join(request):
     return render(request, 'join.html', {'form': form })
 
 
-def index_null(request):
-    return index(request,1)
 
-
-def index(request, category):
-
-    user_id = None
-    if request.user.is_authenticated:
-        user_id = request.user.user_id  # 혹은 request.user.username 등 로그인한 유저의 정보를 사용
-    
-    if user_id and datetime.datetime.now().year!=this_year:
-        return redirect('/ending/1')
-    
-    checklists = MemberChecklist.objects.filter(member=user_id)
-    if category == 1:
-        some_missionlist_pro = checklists.filter(checklist__category=1, status=0, checklist__need_class_stat__lte=request.user.int_stat)  # 카테고리가 1, status가 0인 미션 리스트를 가져옴
-        some_missionlist_pre = checklists.filter(checklist__category=1, status=-1, checklist__need_class_stat__lte=request.user.int_stat) # 카테고리가 1, status가 -1인 미션 리스트를 가져옴
-        some_missionlist_pro.order_by('checklist__level')
-        some_missionlist_pre.order_by('checklist__level')
-        category_name = '학업'
-    elif category == 2:
-        some_missionlist_pro = checklists.filter(checklist__category=2, status=0, checklist__need_social_stat__lte=request.user.social_stat)  # 카테고리가 2, status가 0인 미션 리스트를 가져옴
-        some_missionlist_pre = checklists.filter(checklist__category=2, status=-1, checklist__need_social_stat__lte=request.user.social_stat)  # 카테고리가 2, status가 -1인 미션 리스트를 가져옴
-        some_missionlist_pro.order_by('checklist__level')
-        some_missionlist_pre.order_by('checklist__level')
-        category_name = '사교'
-    elif category == 3:
-        some_missionlist_pro = checklists.filter(checklist__category=3, status=0, checklist__need_exp_stat__lte=request.user.exp_stat)  # 카테고리가 3, status가 0인 미션 리스트를 가져옴
-        some_missionlist_pre = checklists.filter(checklist__category=3, status=-1, checklist__need_exp_stat__lte=request.user.exp_stat)  # 카테고리가 3, status가 -1인 미션 리스트를 가져옴
-        some_missionlist_pro.order_by('checklist__level')
-        some_missionlist_pre.order_by('checklist__level')
-        category_name = '경험'
-    else:
-        some_missionlist = None
-    context = {'some_missionlist_pre': some_missionlist_pre,
-               'some_missionlist_pro':some_missionlist_pro,'category_name':category_name}
-    return render(request, 'index.html', context)    
-    
 
 class LoginView(View):
     def get(self, request):
@@ -82,7 +45,7 @@ class LoginView(View):
             user = authenticate(request, user_id=user_id, password=password)
             if user is not None:
                 login(request, user)
-                return redirect('index_null')
+                return redirect('checklist:index_null')
             else:
                 form.add_error('user_id', '로그인 정보가 잘못되었습니다.')
         return render(request, 'login.html', {'form': form})
@@ -99,7 +62,7 @@ def is_login(request):
         user_id = request.user.user_id  # 혹은 request.user.username 등 로그인한 유저의 정보를 사용
 
     if not user_id:
-        return redirect('index_null')
+        return redirect('checklist:index_null')
     
     if datetime.datetime.now().year!=this_year:
         return redirect('/ending/1')
@@ -184,7 +147,7 @@ def setup(request):
             member = Member.objects.get(user_id=user_id)
             member.is_active = False
             member.save()
-            return redirect('index_null')
+            return redirect('checklist:index_null')
 
     form1 = ChangeProfileForm()
     form2 = ChangeNameForm()
@@ -212,7 +175,7 @@ def select_title(request):
         'selectable_titles': selectable_titles,
         'non_selectable_titles': non_selectable_titles,
     }
-    return redirect('mypage')
+    return redirect('login:mypage')
 
 
 def change_title(request, title):
@@ -227,7 +190,7 @@ def change_title(request, title):
         member = Member.objects.get(user_id=user_id)
         member.title = title
         member.save()
-    return redirect(select_title)
+    return redirect('login:select_title')
 
 
 def change_title_color(request, color):
@@ -250,7 +213,7 @@ def ending(request, num):
         user_id = request.user.user_id
 
     if not user_id and datetime.datetime.now().year==this_year:
-        return redirect('index_null')
+        return redirect('checklist:index_null')
 
     if num == 1:
         return render(request, "ending.html")
@@ -277,13 +240,13 @@ def ending(request, num):
         
 
 
-def prolog(request, num):
+def prolog(request,num):
     user_id = None
     if request.user.is_authenticated:
         user_id = request.user.user_id
 
     if not user_id and datetime.datetime.now().year!=this_year:
-        return redirect('index_null')
+        return redirect('checklist:index_null')
 
     if num == 1:
         return render(request, "prolog.html")
