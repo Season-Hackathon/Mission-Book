@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prolog</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
+    <style>
+        *{
+            font-family: 'Apple SD Gothic Neo';
+            font-style: normal;
+            font-weight: 700;
+            font-size: 19px;
+            line-height: 24px;
+            text-align: center;
+            color: #8C8C8C;
+        }
+        body{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        p:first-of-type{
+            margin-top: 148px;
+        }
+        p:last-of-type{
+            margin-bottom: 191px;
+        }
+        p{
+            margin-bottom: 40px;
+        }
+        .nick, .strong{
+            color:#666666;
+        }
+        .red{
+            color: #C74E4E;
+        }
+
+        .fade_in{
+            opacity: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="visual">
+        <p class="fade_in"><span class="nick">{{user.name}}</span>님, 안녕하세요?<br/>
+            지금부터 <span class="nick">{{user.name}}</span>님의 <br/>
+            행복한 새내기 생활을 위해<br/> 
+            맞춤 미션 제공 서비스를 시작합니다! 
+        </p>
+        <p class="fade_in">저희가 제공하는 미션을 통해 <br/> 즐거운 새내기 생활을 보내시기 바랍니다.</p>
+        <p class="fade_in">저희 서비스는 <span class="red">실제 행동</span>에 따라<br/> 결과값을 입력해야<br/> 가장 효과가 좋다는 점을 명심해주세요.</p>
+        <p class="fade_in">마지막으로, 저희는 서비스 취지상<br/> 새내기 기간인<br/> 현재 날짜부터 올해 <span class="strong">12월 31일</span>까지만<br/>서비스를 
+            이용하실 수 있습니다.
+        </p>
+        <p class="fade_in">그러면, 즐거운 새내기 생활되세요 🙂</p>
+    </div>
+
+    <script>
+
+        // 시간차 문단 보이기
+        const fadeEls = document.querySelectorAll('.fade_in');
+        fadeEls.forEach((fadeEl, index)=>{
+            gsap.to(fadeEl, 2, {
+            delay : (index + 1) * .9,
+            opacity:1
+        })
+        });
+
+        // 바디 클릭시 프롤로그 다음 페이지로 넘어감
+        $('body').click(()=>{ window.location.href = "{% url 'login:prolog' num=2 %}"; });
+
+    </script>
+</body>
+</html>
