@@ -5,6 +5,7 @@ header {
   justify-content: end;
   padding-right: 5px;
 }
+
 header img {
   margin-right: 15px;
 }
@@ -98,10 +99,9 @@ a {
   position: absolute;
   top: 0px;
   left: 4rem;
-  /* background-color: yellow; */
-  background: #f9f9f9;
-  width: 99%;
-  height: 100vh;
+  /* background-color: #f9f9f9; */
+  /* width: 100%;
+  height: 100vh; */
 }
 
 /* 서브 메뉴 컨텐츠  */
@@ -110,10 +110,10 @@ a {
   position: absolute;
   top: 3.1rem;
   left: 0px;
-  /* background-color: yellow; */
-  background-color: #f9f9f9;
-  width: 99%;
-  height: 100vh;
+  /* background-color: yellow;
+  background-color: #f9f9f9; */
+  /* width: 99%;
+  height: 100vh; */
 }
 
 /* 메인 메뉴 눌렸을 때 */
@@ -166,8 +166,8 @@ a {
 
 #complete ul {
   width: 100%;
-  margin-left: 20%;
 }
+
 /* 퍼센트바 */
 #progress {
   appearance: none;
@@ -188,33 +188,41 @@ a {
 }
 
 /* 색상 팔레트  */
+.box {
+  margin: 0 auto;
+  padding-top: 30px;
+  padding-bottom: 40px;
+  width: 200px;
+  height: 40px;
+}
+
 .pallet {
-  margin: 3rem 0rem 1rem 5rem;
+  width: 200px;
+  /* height: 100px; */
 }
 
 .active {
   border: 0.5px solid #c0c0c0;
 }
 
+/* 색 칸 */
 .colorBox {
-  width: 1.4rem;
-  height: 1.4rem;
-  float: left;
-  margin-right: 0.4rem;
+  width: 20px;
+  height: 20px;
   border-radius: 50%;
-  border: 0.5px solid #c0c0c0;
+  float: left;
+  margin: 3px 9.5px 0px 0px;
   cursor: pointer;
 }
 
-#apply {
+/* 적용 버튼 */
+.submit-btn {
+  width: 45px;
+  height: 30px;
+
   background: #fbfbfb;
   border: 0.8px solid #c0c0c0;
   border-radius: 5px;
-  font-weight: 800;
-  font-size: 15px;
-  line-height: 17px;
-  padding: 0.2rem;
-  color: #666666;
 }
 
 /* 칭호 */
@@ -222,31 +230,30 @@ a {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: space-between;
+  /* justify-content: space-between; */
 }
 
-.title-text {
-  flex: auto;
+#title-text {
   width: 30%;
   margin-left: 2rem;
   margin-bottom: 2rem;
   font-weight: 700;
   font-size: 15px;
-  line-height: 30px;
+  line-height: 20px;
   color: #7a7a7a;
 }
 
 /* 완료-학업 */
 .sub-wrap-study {
   display: inline-block;
-  margin-top: 5%;
-  margin-left: 5%;
+  margin-top: 2%;
   width: 125px;
   height: 100px;
 
   background: #ffffff;
   box-shadow: 2px 4px 4px rgba(0, 0, 0, 0.1);
   border-radius: 10px;
+  cursor: pointer;
 }
 
 #star-study {
@@ -257,7 +264,7 @@ a {
 }
 
 #text-study {
-  text-align: center;
+  /* text-align: center; */
   font-weight: 800;
   font-size: 15px;
   line-height: 18px;
@@ -267,13 +274,14 @@ a {
 /* 완료-사교 */
 .sub-wrap-social {
   display: inline-block;
-  margin-top: 5%;
+  margin-top: 2%;
   width: 125px;
   height: 100px;
 
   background: #ffffff;
   box-shadow: 2px 4px 4px rgba(0, 0, 0, 0.1);
   border-radius: 10px;
+  cursor: pointer;
 }
 
 #star-social {
@@ -294,18 +302,18 @@ a {
 /* 완료-경험 */
 .sub-wrap-exp {
   display: inline-block;
-  margin-top: 5%;
-  margin-left: 5%;
+  margin-top: 2%;
   width: 125px;
   height: 100px;
 
   background: #ffffff;
   box-shadow: 2px 4px 4px rgba(0, 0, 0, 0.1);
   border-radius: 10px;
+  cursor: pointer;
 }
 
 #star-exp {
-  color: #ffe692;
+  color: #ffcccc;
   font-size: 15px;
   margin-left: 10px;
   line-height: 40px;
@@ -317,4 +325,42 @@ a {
   font-size: 15px;
   line-height: 18px;
   color: #666666;
+}
+
+/* 서브메뉴 */
+section {
+  display: none;
+  /* margin-left: 10px; */
+  padding-top: 10px;
+}
+
+input {
+  display: none;
+}
+
+label {
+  /* margin-left: 1rem; */
+  display: inline-block;
+  padding: 10px 15px;
+}
+
+label:hover {
+  background: #efefef;
+  border: 0.5px solid #c0c0c0;
+  border-radius: 2px;
+  cursor: pointer;
+}
+
+/*input 클릭시, label 스타일*/
+input:checked + label {
+  background: #efefef;
+  border: 0.5px solid #c0c0c0;
+  border-radius: 2px;
+}
+
+/* 텍스트 숨기기 */
+#tab1:checked ~ #content1,
+#tab2:checked ~ #content2,
+#tab3:checked ~ #content3 {
+  display: block;
 }
